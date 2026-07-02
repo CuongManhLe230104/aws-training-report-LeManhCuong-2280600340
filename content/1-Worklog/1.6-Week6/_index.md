@@ -1,55 +1,39 @@
 ---
 title: "Week 6 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-05-25
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
 
-
+**Developing Extended APIs & Authorization for SaaS HR Multi-tenant System**
+**Name:** Lê Mạnh Cường
+**ID:** 2280600340
 
 ### Week 6 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Authentication Service (auth-service): Design and build APIs for enterprise member management (Workspace Users), role authorization (Owner, Admin, Member), and access control.
+* HR Service (hr-service): Develop APIs to update employee profiles/positions and remove employees from the tenant's system, ensuring data safety constraints.
+* Tenant Service (tenant-service): Develop APIs to view enterprise information (for tenant employees) and update basic information (logo, enterprise name) for the Owner.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 1 | Analyze & design database for Auth Service: <br> - Survey existing users and user_tenants tables. <br> - Design specifications for Workspace Users management APIs: List users in the current tenant, update roles, and evict members. | 05/25/2026 | 05/25/2026 | |
+| 2 | Logic specification and implementation of Auth Service APIs: <br> - Build CRUD functions to query data from the user_tenants table. <br> - Build processing routers, integrate authorization middleware (only Owner or Admin can modify roles or evict users from the tenant). | 05/26/2026 | 05/26/2026 | |
+| 3 | Analyze & design update/delete employee APIs for HR Service: <br> - Survey data fields needed to update employee profiles (EmployeeUpdate). <br> - Design update and delete endpoints. <br> - Design security constraints: Only allow accounts with 'admin' or 'owner' roles to modify or delete employee information. | 05/27/2026 | 05/27/2026 | |
+| 4 | Logic specification and implementation of HR Service APIs: <br> - Write CRUD functions to update profiles (update_employee) and delete employees (delete_employee). <br> - Set up API endpoints in the hr.py router. <br> - Extract tenant_id from the JWT token to ensure HR information isolation between tenants. | 05/28/2026 | 05/28/2026 | |
+| 5 | Analyze & design Tenant configuration management APIs: <br> - Design APIs to view enterprise configurations and update the enterprise logo/name. <br> - Determine the current Tenant DB structure and the data transmission flow between the Client and Tenant Service. | 05/29/2026 | 05/29/2026 | |
+| 6 | Logic specification and implementation of Tenant Service APIs: <br> - Implement the tenants.py router to handle view and update configuration requests. <br> - Use the tenant_id extracted from the user's authentication token to accurately identify the queried enterprise, preventing data leaks or unauthorized cross-tenant updates. | 05/30/2026 | 05/30/2026 | |
+| 7 | Comprehensive testing of newly developed APIs: <br> - Build test cases using Postman / cURL to simulate API call flows through the Nginx API Gateway. <br> - Test Role-based Access Control (RBAC) and data isolation (Multi-tenancy). <br> - Clean up test data and prepare the production environment. | 05/31/2026 | 05/31/2026 | |
 
 ### Week 6 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Successfully designed and built APIs for enterprise member management, role authorization (Owner, Admin, Member), and access control for the Authentication Service (auth-service).
+  ![SaaS HR Auth Service API](images/auth_service_1.png)
+* Completely developed APIs for updating profiles/positions and removing employees for the HR Service (hr-service), successfully integrating `tenant_id` extraction from JWT tokens to ensure data isolation.
+  ![SaaS HR Core Service API](images/core_service.png)
+* Completed the development of APIs for the Tenant Service (tenant-service) to securely view and update enterprise configurations.
+  ![SaaS HR Tenant Service API](images/tenant_service.png)
+* Successfully tested the entire API system via the Nginx API Gateway, verifying that Role-Based Access Control (RBAC) and Multi-tenancy data isolation function accurately.

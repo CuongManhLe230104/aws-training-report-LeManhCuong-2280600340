@@ -1,57 +1,34 @@
 ---
-title: "Worklog Tuần 2"
-date: 2024-01-01
-weight: 1
+title: "Week 2 Worklog"
+date: 2026-04-27
+weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
 
+**Explore AWS Services**
+**Name:** Lê Mạnh Cường
+**ID:** 2280600340
 
+### Mục tiêu Tuần 2 (Week 2 Objectives):
 
-### Mục tiêu tuần 2:
+* Quản trị quyền truy cập với AWS Identity and Access Management (IAM).
+* Bắt đầu với Amazon Virtual Private Cloud (VPC) và AWS Site-to-Site VPN.
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Nhiệm vụ thực hiện trong tuần (Tasks to be carried out this week):
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 1 | - Tìm hiểu các thành phần cốt lõi: IAM Users, Groups, Policies và Roles. <br> - Thực hành tạo Admin Group, Admin User và thiết lập đăng nhập. | 04/27/2026 | 04/28/2026 | <https://000002.awsstudygroup.com> |
+| 2 | - Cấu hình IAM Role và thực hiện chuyển đổi Role (Switch Role) cho OperatorUser. <br> - Áp dụng nguyên tắc đặc quyền tối thiểu (Least Privilege). | 04/28/2026 | 04/29/2026 | <https://000002.awsstudygroup.com> |
+| 3 | - Tìm hiểu các thành phần hạ tầng: Subnets, Route Table, Internet Gateway và NAT Gateway. <br> - Thiết lập bảo mật mạng với Security Groups và Network ACLs. | 04/30/2026 | 05/01/2026 | <https://000003.awsstudygroup.com/> |
+| 4 | - Thực hành tạo VPC, cấu hình Flow Logs và kiểm tra kết nối với Reachability Analyzer. <br> - Tìm hiểu về kết nối Site-to-Site VPN để liên kết mạng nội bộ với AWS. | 05/02/2026 | 05/03/2026 | <https://000003.awsstudygroup.com/> |
 
+### Kết quả đạt được (Week 2 Achievements):
 
-### Kết quả đạt được tuần 2:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Nắm vững các thành phần cốt lõi của IAM (Users, Groups, Policies, Roles) và áp dụng thành công nguyên tắc đặc quyền tối thiểu (Least Privilege).
+* Thực hành khởi tạo thành công Admin Group, Admin User, cấu hình IAM Role và thực hiện chuyển đổi Role (Switch Role).
+* Hiểu rõ kiến trúc hạ tầng mạng AWS thông qua việc tìm hiểu Subnets, Route Table, Internet Gateway và NAT Gateway.
+* Cấu hình thành công bảo mật mạng sử dụng Security Groups và Network ACLs.
+* Thực hành khởi tạo VPC, thiết lập cấu hình Flow Logs, đồng thời sử dụng Reachability Analyzer để kiểm tra kết nối.
+* Nắm bắt cơ bản về kiến trúc và cách thức hoạt động của kết nối Site-to-Site VPN để liên kết mạng nội bộ với môi trường AWS.

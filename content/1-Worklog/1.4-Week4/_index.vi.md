@@ -1,57 +1,38 @@
 ---
-title: "Worklog Tuần 4"
-date: 2024-01-01
-weight: 1
+title: "Week 4 Worklog"
+date: 2026-05-11
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
 
+**Explore AWS Services**
+**Name:** Lê Mạnh Cường
+**ID:** 2280600340
 
+### Week 4 Objectives:
 
-### Mục tiêu tuần 4:
+* Hạ tầng: Khởi tạo và cấu hình môi trường mạng (VPC, Security Group) cho các loại hệ điều hành khác nhau.
+* Quản trị: Thành thạo các thao tác vận hành máy chủ ảo (EC2) như thay đổi cấu hình, sao lưu (Snapshot) và đóng gói (AMI).
+* Bảo mật & Phục hồi: Thực hành các phương thức truy cập thay thế khi mất thông tin xác thực (Key Pair).
+* Triển khai: Cài đặt môi trường Web Server (LAMP/XAMPP) và triển khai ứng dụng Node.js thực tế.
+* Quản trị Amazon RDS: Hiểu về dịch vụ cơ sở dữ liệu quan hệ (Relational Database), cách cấu hình bảo mật, sao lưu và tính sẵn sàng cao (Multi-AZ).
+* Lưu trữ với Amazon S3 (Module 6): Hiểu về lưu trữ đối tượng (Object Storage), quản lý quyền truy cập và các tính năng nâng cao như Hosting Website tĩnh, Versioning.
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Tasks to be carried out this week:
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 1 | - Thực hiện các bước chuẩn bị (Preparation). <br> - Triển khai Microsoft AD Deployment trên AWS. <br> - Thiết lập kết nối bảo mật đến RDGW. <br> - Cấu hình hệ thống phân giải tên miền nội bộ (Setup DNS). | 05/11/2026 | 05/11/2026 | <https://000004.awsstudygroup.com/> |
+| 2-3 | - Kiểm tra Prerequisites & Cấu hình Network ACL. <br> - Khởi tạo kết nối VPC Peering giữa các vùng mạng. <br> - Cập nhật Route Tables cho các Subnet. <br> - Thiết lập Cross-Peer DNS để gọi dịch vụ qua hostname. <br> - Áp dụng IAM Policy để giới hạn quyền hạn theo Region và Instance Type. <br> - Triển khai ứng dụng Node.js CRUD trên nền tảng LAMP/XAMPP. | 05/12/2026 | 05/13/2026 | <https://000004.awsstudygroup.com/> |
+| 4-5 | - Chuẩn bị hạ tầng RDS: Tạo VPC, EC2 Security Group, RDS Security Group và DB Subnet Group. <br> - Khởi tạo RDS: Tạo instance cơ sở dữ liệu (MySQL/MariaDB/PostgreSQL). <br> - Triển khai ứng dụng kết nối tới RDS Database. <br> - Thực hành Backup & Restore: Tạo DB Snapshot và khôi phục dữ liệu. <br> - Tìm hiểu cơ chế Multi-AZ (High Availability) và Read Replicas (Scalability). | 05/14/2026 | 05/15/2026 | <https://000005.awsstudygroup.com/> |
+| 6-7 | - Tạo S3 Bucket, thực hành Upload/Download đối tượng. <br> - Cấu hình Bucket Policy và ACL để quản lý quyền truy cập. <br> - Kích hoạt Versioning (Quản lý phiên bản) và Static Website Hosting. <br> - Tìm hiểu các loại lưu trữ (Storage Classes) để tối ưu chi phí. <br> - Kiểm tra luồng dữ liệu: App (EC2) -> DB (RDS) -> Media (S3). | 05/16/2026 | 05/17/2026 | <https://000006.awsstudygroup.com/> |
 
+### Week 4 Achievements:
 
-### Kết quả đạt được tuần 4:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Đã khởi tạo và cấu hình môi trường mạng (VPC, Security Group) cho các loại hệ điều hành khác nhau.
+* Thành thạo các thao tác vận hành máy chủ ảo (EC2) như thay đổi cấu hình, sao lưu (Snapshot) và đóng gói (AMI).
+* Thực hành thành công các phương thức truy cập thay thế khi mất thông tin xác thực (Key Pair).
+* Cài đặt môi trường Web Server (LAMP/XAMPP) và triển khai ứng dụng Node.js thực tế.
+* Hiểu về dịch vụ cơ sở dữ liệu quan hệ (Relational Database), cách cấu hình bảo mật, sao lưu và tính sẵn sàng cao (Multi-AZ).
+* Hiểu rõ về lưu trữ đối tượng (Object Storage), quản lý quyền truy cập và các tính năng nâng cao như Hosting Website tĩnh, Versioning.

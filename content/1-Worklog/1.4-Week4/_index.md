@@ -1,55 +1,37 @@
 ---
 title: "Week 4 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-05-11
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
 
-
+**Name:** Lê Mạnh Cường
+**ID:** 2280600340
 
 ### Week 4 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Infrastructure: Initialize and configure network environments (VPC, Security Group) for different types of operating systems.
+* Administration: Master virtual server (EC2) operations such as configuration changes, backups (Snapshot), and packaging (AMI).
+* Security & Recovery: Practice alternative access methods when credentials (Key Pair) are lost.
+* Deployment: Install a Web Server environment (LAMP/XAMPP) and deploy a real-world Node.js application.
+* Amazon RDS Administration: Understand Relational Database services, how to configure security, backups, and high availability (Multi-AZ).
+* Storage with Amazon S3 (Module 6): Understand Object Storage, access management, and advanced features such as Static Website Hosting and Versioning.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 1 | - Perform preparation steps. <br> - Deploy Microsoft AD on AWS. <br> - Establish a secure connection to RDGW. <br> - Configure the internal Domain Name System (Setup DNS). | 05/11/2026 | 05/11/2026 | <https://000004.awsstudygroup.com/> |
+| 2-3 | - Check Prerequisites & Configure Network ACLs. <br> - Initialize VPC Peering connections between networks. <br> - Update Route Tables for Subnets. <br> - Set up Cross-Peer DNS to resolve services via hostname. <br> - Apply IAM Policies to limit permissions by Region and Instance Type. <br> - Deploy a Node.js CRUD application on the LAMP/XAMPP platform. | 05/12/2026 | 05/13/2026 | <https://000004.awsstudygroup.com/> |
+| 4-5 | - Prepare RDS infrastructure: Create VPC, EC2 Security Group, RDS Security Group, and DB Subnet Group. <br> - Initialize RDS: Create database instances (MySQL/MariaDB/PostgreSQL). <br> - Deploy an application to connect to the RDS Database. <br> - Practice Backup & Restore: Create DB Snapshots and restore data. <br> - Learn about Multi-AZ (High Availability) and Read Replicas (Scalability). | 05/14/2026 | 05/15/2026 | <https://000005.awsstudygroup.com/> |
+| 6-7 | - Create an S3 Bucket, practice Uploading/Downloading objects. <br> - Configure Bucket Policies and ACLs to manage access. <br> - Enable Versioning and Static Website Hosting. <br> - Learn about Storage Classes to optimize costs. <br> - Test data flow: App (EC2) -> DB (RDS) -> Media (S3). | 05/16/2026 | 05/17/2026 | <https://000006.awsstudygroup.com/> |
 
 ### Week 4 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Initialized and configured network environments (VPC, Security Group) for different types of operating systems.
+* Mastered virtual server (EC2) operations such as configuration changes, backups (Snapshot), and packaging (AMI).
+* Successfully practiced alternative access methods when credentials (Key Pair) are lost.
+* Installed a Web Server environment (LAMP/XAMPP) and deployed a real-world Node.js application.
+* Understood Relational Database services, security configurations, backups, and high availability (Multi-AZ).
+* Grasped the concepts of Object Storage, access management, and advanced features like Static Website Hosting and Versioning.
