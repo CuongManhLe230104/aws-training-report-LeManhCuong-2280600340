@@ -32,9 +32,9 @@ pre: " <b> 1.7. </b> "
 
 ### Week 7 Achievements:
 
-* Successfully decomposed services and defined bounded contexts based on Microservices architecture.
-* Built an event-driven system and comprehended the Serverless pay-per-use application model.
-* Developed APIs in accordance with RESTful and GraphQL standards.
-* Successfully applied asynchronous messaging and workflow orchestration.
-* Built CI/CD pipelines and automated network infrastructure.
-* Implemented authentication, authorization, and Zero-trust models to modernize security.
+* **Module 50 & 51 (Migrate & CI/CD):** Executed Monolith migration and set up automated application releases (Auto-release apps).
+* **Module 52 & 53 (Microservices & Data):** Decomposed and created new Microservices; restructured data and workflows to be compatible with distributed architectures.
+* **Module 54 & 55 (Messaging & SPA):** Built messaging and event routing systems for Microservices; successfully created and authenticated Single Page Applications (SPA).
+* **Module 47 & 56 (AI Services & Step Functions):** Experienced AI services on AWS and configured AWS Step Functions for workflow orchestration.
+* **Module 78 & 79 (Lambda & API Gateway):** Configured AWS Lambda to interact with S3/DynamoDB; built a Frontend interface connecting to the backend via API Gateway.
+* **Module 80 & 81 (AWS SAM & Cognito):** Deployed Serverless applications using the AWS SAM tool; set up system authentication and security via Amazon Cognito.

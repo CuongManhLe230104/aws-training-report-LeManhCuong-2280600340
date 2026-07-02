@@ -26,9 +26,5 @@ pre: " <b> 1.3. </b> "
 
 ### Kết quả đạt được (Week 3 Achievements):
 
-* Hoàn thành chuẩn bị môi trường và triển khai thành công hệ thống Microsoft Active Directory trên AWS.
-* Thiết lập kết nối an toàn thông qua Remote Desktop Gateway (RDGW) và cấu hình thành công hệ thống phân giải tên miền (DNS).
-* Nắm vững cách thiết lập Network ACL để kiểm soát lưu lượng truy cập an toàn giữa các mạng.
-* Khởi tạo và cấu hình thành công VPC Peering để liên thông mạng giữa các VPC.
-* Cấu hình định tuyến (Route Tables) chính xác và thiết lập Cross-Peer DNS để đảm bảo giao tiếp thông suốt giữa các VPC.
-* Hoàn thành quy trình dọn dẹp tài nguyên (Clean up resources) để tối ưu chi phí sau khi thực hành.
+* **Module 10 (Microsoft AD & RDGW):** Chuẩn bị môi trường và triển khai thành công hệ thống Microsoft Active Directory trên AWS; thiết lập kết nối an toàn qua Remote Desktop Gateway (RDGW) và cấu hình hệ thống phân giải tên miền (DNS).
+* **Module 19 (VPC Peering):** Khởi tạo và cấu hình thành công VPC Peering giữa các vùng mạng; cập nhật Network ACL, cấu hình bảng định tuyến (Route Tables) và thiết lập Cross-Peer DNS để đảm bảo giao tiếp liên mạng thông suốt.

@@ -30,9 +30,6 @@ pre: " <b> 1.4. </b> "
 
 ### Week 4 Achievements:
 
-* Đã khởi tạo và cấu hình môi trường mạng (VPC, Security Group) cho các loại hệ điều hành khác nhau.
-* Thành thạo các thao tác vận hành máy chủ ảo (EC2) như thay đổi cấu hình, sao lưu (Snapshot) và đóng gói (AMI).
-* Thực hành thành công các phương thức truy cập thay thế khi mất thông tin xác thực (Key Pair).
-* Cài đặt môi trường Web Server (LAMP/XAMPP) và triển khai ứng dụng Node.js thực tế.
-* Hiểu về dịch vụ cơ sở dữ liệu quan hệ (Relational Database), cách cấu hình bảo mật, sao lưu và tính sẵn sàng cao (Multi-AZ).
-* Hiểu rõ về lưu trữ đối tượng (Object Storage), quản lý quyền truy cập và các tính năng nâng cao như Hosting Website tĩnh, Versioning.
+* **Module 4 (Network, Compute & LAMP):** Hoàn thiện môi trường VPC Peering, thiết lập Cross-Peer DNS, áp dụng IAM Policy giới hạn quyền hạn theo Region/Instance Type, và triển khai thành công ứng dụng Node.js CRUD trên nền tảng LAMP/XAMPP.
+* **Module 5 (Amazon RDS):** Chuẩn bị hạ tầng và khởi tạo thành công RDS instance (MySQL/MariaDB/PostgreSQL); thực hành tính năng Backup & Restore (DB Snapshot) và nắm vững cơ chế Multi-AZ, Read Replicas.
+* **Module 6 (Amazon S3):** Quản trị lưu trữ đối tượng với S3 Bucket, cấu hình Bucket Policy/ACL bảo mật, kích hoạt Versioning, Static Website Hosting và hiểu rõ các lớp lưu trữ (Storage Classes) để tối ưu chi phí.

@@ -26,9 +26,5 @@ pre: " <b> 1.2. </b> "
 
 ### Kết quả đạt được (Week 2 Achievements):
 
-* Nắm vững các thành phần cốt lõi của IAM (Users, Groups, Policies, Roles) và áp dụng thành công nguyên tắc đặc quyền tối thiểu (Least Privilege).
-* Thực hành khởi tạo thành công Admin Group, Admin User, cấu hình IAM Role và thực hiện chuyển đổi Role (Switch Role).
-* Hiểu rõ kiến trúc hạ tầng mạng AWS thông qua việc tìm hiểu Subnets, Route Table, Internet Gateway và NAT Gateway.
-* Cấu hình thành công bảo mật mạng sử dụng Security Groups và Network ACLs.
-* Thực hành khởi tạo VPC, thiết lập cấu hình Flow Logs, đồng thời sử dụng Reachability Analyzer để kiểm tra kết nối.
-* Nắm bắt cơ bản về kiến trúc và cách thức hoạt động của kết nối Site-to-Site VPN để liên kết mạng nội bộ với môi trường AWS.
+* **Module 2 (AWS IAM):** Nắm vững và thực hành các thành phần cốt lõi của IAM (Users, Groups, Policies, Roles), thực hiện Switch Role thành công và áp dụng chặt chẽ nguyên tắc đặc quyền tối thiểu (Least Privilege).
+* **Module 3 (VPC & Networking):** Hiểu rõ kiến trúc hạ tầng mạng AWS; thực hành khởi tạo VPC, Subnets, Route Table, IGW và NAT Gateway. Cấu hình bảo mật mạng với Security Groups, Network ACLs, Flow Logs, và kiểm tra kết nối bằng Reachability Analyzer.

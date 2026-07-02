@@ -30,6 +30,9 @@ pre: " <b> 1.5. </b> "
 
 ### Week 5 Achievements:
 
-* Đã thành thạo AWS CLI để quản trị bằng dòng lệnh và sử dụng Amazon Lightsail để vận hành nhanh các ứng dụng mẫu.
-* Cấu hình thành công hệ thống lưu trữ phân phối bảo mật với S3 và CloudFront; áp dụng IAM Role để phân quyền ứng dụng an toàn.
-* Đã đóng gói thành công ứng dụng với Docker, xử lý di chuyển máy ảo (VM Import/Export), tự động hóa sao lưu (AWS Backup), thiết lập giám sát (CloudWatch) và kiểm soát ngân sách (AWS Budget).
+* **Module 11 (AWS CLI) & Module 45 (Lightsail):** Cài đặt/cấu hình AWS CLI để quản trị qua Terminal; sử dụng Amazon Lightsail triển khai nhanh các ứng dụng mã nguồn mở.
+* **Module 57 (S3 & CloudFront):** Cấu hình Static Website Hosting, tích hợp CloudFront làm CDN và thiết lập Origin Access Control (OAC) chặn truy cập trực tiếp.
+* **Module 48 (IAM Role) & Module 15 (Docker):** Gắn IAM Role trực tiếp lên EC2 để xác thực an toàn; build Docker Image, quản trị bằng docker-compose.yml và push lên Amazon ECR.
+* **Module 14 (VM Import/Export):** Đóng gói máy ảo cục bộ, upload lên S3 và convert thành Amazon Machine Image (AMI) để chạy trên EC2.
+* **Module 13 (AWS Backup):** Khởi tạo Backup Plan, thiết lập lịch trình tự động, cấu hình cảnh báo SNS và khôi phục dữ liệu thành công.
+* **Module 7 & 8 (CloudWatch & AWS Budget):** Cấu hình thu thập log/metrics với CloudWatch; tạo Cost/Usage Budget và thiết lập cảnh báo ngân sách tự động.

@@ -26,9 +26,5 @@ pre: " <b> 1.3. </b> "
 
 ### Week 3 Achievements:
 
-* Completed environment preparation and successfully deployed the Microsoft Active Directory system on AWS.
-* Established a secure connection via Remote Desktop Gateway (RDGW) and successfully configured the Domain Name System (DNS).
-* Mastered setting up Network ACLs to securely control traffic between networks.
-* Successfully initialized and configured VPC Peering to interconnect VPCs.
-* Accurately configured Route Tables and set up Cross-Peer DNS to ensure seamless communication between VPCs.
-* Completed the resource cleanup process to optimize costs after the lab sessions.
+* **Module 10 (Microsoft AD & RDGW):** Prepared the environment and successfully deployed the Microsoft Active Directory system on AWS; established secure connections via Remote Desktop Gateway (RDGW) and configured DNS.
+* **Module 19 (VPC Peering):** Successfully initialized and configured VPC Peering between networks; updated Network ACLs, configured Route Tables, and set up Cross-Peer DNS to ensure seamless inter-network communication.

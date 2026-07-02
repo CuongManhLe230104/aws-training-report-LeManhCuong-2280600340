@@ -26,9 +26,5 @@ pre: " <b> 1.2. </b> "
 
 ### Week 2 Achievements:
 
-* Mastered the core components of IAM (Users, Groups, Policies, Roles) and successfully applied the principle of least privilege.
-* Successfully practiced creating an Admin Group, Admin User, configured IAM Roles, and performed Role Switching.
-* Understood AWS network infrastructure architecture by learning about Subnets, Route Tables, Internet Gateways, and NAT Gateways.
-* Successfully configured network security using Security Groups and Network ACLs.
-* Practiced creating a VPC, set up Flow Logs configurations, and used Reachability Analyzer to test connectivity.
-* Grasped the basics of the architecture and operation of a Site-to-Site VPN connection to link an internal network to the AWS environment.
+* **Module 2 (AWS IAM):** Mastered and practiced core IAM components (Users, Groups, Policies, Roles), successfully performed Role Switching, and strictly applied the principle of Least Privilege.
+* **Module 3 (VPC & Networking):** Understood AWS network infrastructure; practiced creating VPCs, Subnets, Route Tables, IGWs, and NAT Gateways. Configured network security with Security Groups, Network ACLs, Flow Logs, and tested connectivity using Reachability Analyzer.

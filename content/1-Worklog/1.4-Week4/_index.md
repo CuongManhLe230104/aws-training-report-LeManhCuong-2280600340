@@ -29,9 +29,6 @@ pre: " <b> 1.4. </b> "
 
 ### Week 4 Achievements:
 
-* Initialized and configured network environments (VPC, Security Group) for different types of operating systems.
-* Mastered virtual server (EC2) operations such as configuration changes, backups (Snapshot), and packaging (AMI).
-* Successfully practiced alternative access methods when credentials (Key Pair) are lost.
-* Installed a Web Server environment (LAMP/XAMPP) and deployed a real-world Node.js application.
-* Understood Relational Database services, security configurations, backups, and high availability (Multi-AZ).
-* Grasped the concepts of Object Storage, access management, and advanced features like Static Website Hosting and Versioning.
+* **Module 4 (Network, Compute & LAMP):** Finalized VPC Peering environments, set up Cross-Peer DNS, applied IAM Policies limiting permissions by Region/Instance Type, and successfully deployed a Node.js CRUD app on a LAMP/XAMPP platform.
+* **Module 5 (Amazon RDS):** Prepared infrastructure and successfully initialized RDS instances (MySQL/MariaDB/PostgreSQL); practiced Backup & Restore (DB Snapshots) and grasped Multi-AZ and Read Replica mechanisms.
+* **Module 6 (Amazon S3):** Managed object storage with S3 Buckets, configured secure Bucket Policies/ACLs, enabled Versioning, Static Website Hosting, and understood Storage Classes for cost optimization.

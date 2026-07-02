@@ -30,6 +30,9 @@ pre: " <b> 1.5. </b> "
 
 ### Week 5 Achievements:
 
-* Mastered AWS CLI for command-line administration and used Amazon Lightsail to quickly deploy sample applications.
-* Successfully configured a secure distributed storage system with S3 and CloudFront; applied IAM Roles for secure application authorization.
-* Successfully packaged applications with Docker, handled virtual machine migration (VM Import/Export), automated backups (AWS Backup), set up monitoring (CloudWatch), and controlled budgets (AWS Budget).
+* **Module 11 (AWS CLI) & Module 45 (Lightsail):** Installed/configured AWS CLI for terminal management; used Amazon Lightsail for the rapid deployment of open-source applications.
+* **Module 57 (S3 & CloudFront):** Configured Static Website Hosting, integrated CloudFront as a CDN, and set up Origin Access Control (OAC) to block direct access.
+* **Module 48 (IAM Role) & Module 15 (Docker):** Attached IAM Roles to EC2 for secure authentication; built Docker Images, managed them via docker-compose.yml, and pushed to Amazon ECR.
+* **Module 14 (VM Import/Export):** Packaged a local virtual machine, uploaded it to S3, and converted it to an Amazon Machine Image (AMI) to run on EC2.
+* **Module 13 (AWS Backup):** Initialized a Backup Plan, set up automated schedules, configured SNS alerts, and successfully restored data.
+* **Module 7 & 8 (CloudWatch & AWS Budget):** Configured log/metrics collection with CloudWatch; created Cost/Usage Budgets and set up automated budget alerts.

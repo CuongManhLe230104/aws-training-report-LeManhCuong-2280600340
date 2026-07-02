@@ -32,9 +32,9 @@ pre: " <b> 1.7. </b> "
 
 ### Week 7 Achievements:
 
-* Thực hiện thành công việc phân rã dịch vụ và xác định giới hạn ngữ cảnh theo kiến trúc Microservices.
-* Xây dựng được hệ thống hướng sự kiện và nắm bắt mô hình ứng dụng Serverless trả tiền theo mức sử dụng.
-* Phát triển API theo tiêu chuẩn RESTful và GraphQL.
-* Áp dụng thành công cơ chế nhắn tin bất đồng bộ và điều phối quy trình làm việc.
-* Thiết lập đường ống CI/CD và tự động hóa hạ tầng mạng.
-* Triển khai xác thực, phân quyền và các mô hình Zero-trust để hiện đại hóa bảo mật.
+* **Module 50 & 51 (Migrate & CI/CD):** Thực hiện di chuyển ứng dụng nguyên khối (Migrate Monolith) và thiết lập tự động phát hành ứng dụng (Auto-release apps).
+* **Module 52 & 53 (Microservices & Data):** Phân rã và tạo mới Microservice; tái cấu trúc dữ liệu và quy trình làm việc (workflow) tương thích với kiến trúc phân tán.
+* **Module 54 & 55 (Messaging & SPA):** Xây dựng hệ thống nhắn tin, định tuyến sự kiện cho Microservices; tạo và xác thực thành công Ứng dụng Trang Đơn (SPA).
+* **Module 47 & 56 (AI Services & Step Functions):** Trải nghiệm các dịch vụ AI trên AWS và cấu hình AWS Step Functions để điều phối quy trình làm việc.
+* **Module 78 & 79 (Lambda & API Gateway):** Cấu hình AWS Lambda tương tác với S3/DynamoDB; xây dựng giao diện Frontend kết nối backend thông qua API Gateway.
+* **Module 80 & 81 (AWS SAM & Cognito):** Triển khai ứng dụng Serverless bằng công cụ AWS SAM; thiết lập xác thực và bảo mật hệ thống thông qua Amazon Cognito.
