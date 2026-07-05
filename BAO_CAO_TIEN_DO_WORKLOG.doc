@@ -1,0 +1,278 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+    <title>Báo cáo tiến độ tuần</title>
+    <!--[if gte mso 9]>
+    <xml>
+        <w:WordDocument>
+            <w:View>Print</w:View>
+            <w:Zoom>100</w:Zoom>
+            <w:DoNotOptimizeForBrowser/>
+        </w:WordDocument>
+    </xml>
+    <![endif]-->
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            font-size: 12pt;
+            line-height: 1.5;
+            color: #000000;
+            margin: 1in;
+        }
+        h1 {
+            font-size: 18pt;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 14pt;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #000000;
+            padding-bottom: 3px;
+        }
+        h3 {
+            font-size: 12pt;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+        p {
+            margin: 0 0 10px 0;
+            text-align: justify;
+        }
+        ul {
+            margin-top: 0;
+            margin-bottom: 10px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+            text-align: justify;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+        table, th, td {
+            border: 1px solid #000000;
+        }
+        th {
+            background-color: #F2F2F2;
+            font-weight: bold;
+            padding: 8px;
+            text-align: center;
+            font-size: 11pt;
+        }
+        td {
+            padding: 8px;
+            vertical-align: top;
+            font-size: 11pt;
+        }
+        .meta-info {
+            margin-bottom: 30px;
+            font-size: 12pt;
+        }
+        .meta-info table {
+            border: none;
+            width: auto;
+            margin: 0 auto;
+        }
+        .meta-info td {
+            border: none;
+            padding: 3px 15px;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .bold {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>BÁO CÁO TIẾN ĐỘ THỰC TẬP & XÂY DỰNG HỆ THỐNG WORKLOG</h1>
+    
+    <div class="meta-info">
+        <table>
+            <tr>
+                <td class="bold">Họ và tên:</td>
+                <td>Lê Mạnh Cường</td>
+            </tr>
+            <tr>
+                <td class="bold">Mã số sinh viên:</td>
+                <td>2280600340</td>
+            </tr>
+            <tr>
+                <td class="bold">Vị trí thực tập:</td>
+                <td>Workforce Bootcamp - First Cloud AI Journey 2026</td>
+            </tr>
+            <tr>
+                <td class="bold">Thời gian báo cáo:</td>
+                <td>Từ Tuần 1 đến Tuần 10</td>
+            </tr>
+        </table>
+    </div>
+
+    <h2>I. TỔNG QUAN HỆ THỐNG WORKLOG</h2>
+    <p>Hệ thống Worklog (Nhật ký thực tập) được xây dựng dựa trên nền tảng Hugo (phiên bản v0.163.3 extended) và giao diện mẫu chuyên nghiệp <b>hugo-theme-learn</b>. Đây là một nền tảng tạo trang web tĩnh (Static Site Generator) tối ưu, cho phép viết nội dung báo cáo bằng Markdown và tự động biên dịch thành các trang web HTML tĩnh hoạt động mượt mà.</p>
+    <p>Các công nghệ cốt lõi được áp dụng trong quá trình xây dựng và vận hành trang web Worklog bao gồm:</p>
+    <ul>
+        <li><b>Hugo Framework:</b> Trình biên dịch trang web tĩnh tốc độ cao.</li>
+        <li><b>Đa ngôn ngữ (Multilingual):</b> Hỗ trợ song song hai phiên bản tiếng Anh (mặc định) và tiếng Việt (được định tuyến qua phân hệ <code>/vi/</code>).</li>
+        <li><b>Markdown Render Hooks:</b> Tự động hóa việc xử lý hình ảnh cục bộ. Bằng việc tùy biến tệp <code>render-image.html</code>, các đường dẫn ảnh tương đối sẽ tự động nhận diện <code>baseURL</code> để tránh lỗi hiển thị khi triển khai lên GitHub Pages.</li>
+    </ul>
+
+    <h2>II. TÓM TẮT TIẾN ĐỘ VÀ KẾT QUẢ ĐẠT ĐƯỢC THEO TUẦN</h2>
+
+    <h3>Tuần 1: Khởi đầu và Làm quen với Hạ tầng AWS</h3>
+    <ul>
+        <li><b>Mục tiêu:</b> Làm quen quy định thực tập, thiết lập tài khoản Free Tier và thử nghiệm các dịch vụ cơ bản (EC2, Lambda, RDS, Budgets).</li>
+        <li><b>Kết quả đạt được:</b>
+            <ul>
+                <li>Thiết lập thành công tài khoản AWS Free Tier và thiết lập cảnh báo ngân sách tránh phát sinh chi phí ngoài mong muốn.</li>
+                <li>Khởi chạy thành công máy chủ ảo EC2 chạy hệ điều hành Linux và thực hành truy cập từ xa qua SSH và CLI.</li>
+                <li>Tạo và chạy thành công hàm Serverless AWS Lambda kết nối với cơ sở dữ liệu quan hệ Amazon RDS.</li>
+            </tr>
+        </ul>
+    </ul>
+
+    <h3>Tuần 2: Quản trị Định danh & Thiết lập Hạ tầng Mạng Cơ bản</h3>
+    <ul>
+        <li><b>Mục tiêu:</b> Nắm vững AWS IAM và cấu hình hạ tầng VPC cơ bản.</li>
+        <li><b>Kết quả đạt được:</b>
+            <ul>
+                <li><b>Module 2 (AWS IAM):</b> Thực hành phân quyền chặt chẽ thông qua User, Group, Policy và Role. Cấu hình tính năng Switch Role cho OperatorUser nhằm tuân thủ nguyên tắc đặc quyền tối thiểu (Least Privilege).</li>
+                <li><b>Module 3 (VPC & Networking):</b> Khởi tạo mạng riêng ảo VPC, phân chia subnet Public/Private, cấu hình Route Table, Internet Gateway (IGW) và NAT Gateway. Thiết lập Security Groups và Network ACLs bảo mật 2 lớp; sử dụng Reachability Analyzer để kiểm tra thông tuyến.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Tuần 3: Dịch vụ Định danh Doanh nghiệp & Liên thông Mạng VPC</h3>
+    <ul>
+        <li><b>Mục tiêu:</b> Triển khai Microsoft Active Directory (AD) và cấu hình VPC Peering.</li>
+        <li><b>Kết quả đạt được:</b>
+            <ul>
+                <li><b>Module 10 (Microsoft AD & RDGW):</b> Triển khai hệ thống Microsoft Active Directory trên AWS; cấu hình Remote Desktop Gateway (RDGW) để truy cập an toàn vào hệ thống nội bộ và thiết lập DNS phân giải tên miền.</li>
+                <li><b>Module 19 (VPC Peering):</b> Thiết lập liên thông mạng VPC Peering giữa các vùng mạng khác nhau. Cấu hình bảng định tuyến và Cross-Peer DNS để đảm bảo các máy chủ giữa hai mạng phân giải được tên miền của nhau.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Tuần 4: Phát triển Ứng dụng Web & Quản trị Lưu trữ</h3>
+    <ul>
+        <li><b>Mục tiêu:</b> Triển khai ứng dụng LAMP và cấu hình dịch vụ cơ sở dữ liệu RDS, lưu trữ S3.</li>
+        <li><b>Kết quả đạt được:</b>
+            <ul>
+                <li><b>Module 4 (Network, Compute & LAMP):</b> Hoàn thiện liên thông mạng, áp dụng IAM Policy giới hạn quyền hạn truy cập theo vùng địa lý và triển khai ứng dụng Node.js CRUD trên mô hình máy chủ LAMP.</li>
+                <li><b>Module 5 (Amazon RDS):</b> Khởi tạo RDS instance (MySQL/MariaDB), cấu hình backup tự động qua Snapshot, tìm hiểu cơ chế dự phòng Multi-AZ và mở rộng đọc (Read Replicas).</li>
+                <li><b>Module 6 (Amazon S3):</b> Khởi tạo S3 Bucket, thiết lập chính sách bảo mật Bucket Policy/ACL, cấu hình Versioning bảo vệ dữ liệu và triển khai Static Website Hosting.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Tuần 5: Công cụ Dòng lệnh CLI, Container hóa & Giám sát Hệ thống</h3>
+    <ul>
+        <li><b>Mục tiêu:</b> Tự động hóa qua AWS CLI, Docker, và thiết lập Backup, CloudWatch Logs, AWS Budget.</li>
+        <li><b>Kết quả đạt được:</b>
+            <ul>
+                <li><b>Module 11 & 45:</b> Cài đặt và cấu hình AWS CLI; sử dụng dịch vụ Lightsail để triển khai nhanh các ứng dụng mẫu.</li>
+                <li><b>Module 57:</b> Triển khai CloudFront CDN kết hợp với S3 Static Website, áp dụng Origin Access Control (OAC) để bảo mật tài nguyên lưu trữ tĩnh.</li>
+                <li><b>Module 48 & 15:</b> Gắn IAM Role trực tiếp lên EC2 để ứng dụng truy cập tài nguyên không cần Access Key tĩnh; đóng gói ứng dụng bằng Docker và tải lên kho chứa Amazon ECR.</li>
+                <li><b>Module 14 & 13:</b> Thực hành import máy ảo VM từ VMware lên EC2 dưới dạng AMI; thiết lập AWS Backup tự động hóa sao lưu và gửi cảnh báo qua SNS.</li>
+                <li><b>Module 7 & 8:</b> Cấu hình giám sát hiệu năng qua CloudWatch Logs; thiết lập cảnh báo ngân sách chi tiết với AWS Budget.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Tuần 6: Thiết kế và Xây dựng API Hệ thống SaaS HR</h3>
+    <ul>
+        <li><b>Mục tiêu:</b> Xây dựng và triển khai các API Microservices.</li>
+        <li><b>Kết quả đạt được:</b>
+            <ul>
+                <li>Thiết kế thành công hệ thống API quản trị thành viên và phân quyền vai trò (Owner, Admin, Member) cho dịch vụ Xác thực (auth-service).</li>
+                <li>Hoàn thiện các API quản lý hồ sơ nhân viên trong dịch vụ Nhân sự (hr-service), trích xuất thông tin doanh nghiệp (<code>tenant_id</code>) trực tiếp từ JWT Token để bảo đảm an toàn cô lập dữ liệu.</li>
+                <li>Xây dựng dịch vụ doanh nghiệp (tenant-service) và tích hợp toàn bộ hệ thống API thông qua Nginx API Gateway để bảo đảm cô lập Multi-tenancy.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Tuần 7: Hiện đại hóa Ứng dụng & Kiến trúc Serverless</h3>
+    <ul>
+        <li><b>Mục tiêu:</b> Chuyển đổi sang kiến trúc Microservices Serverless, CI/CD và bảo mật Cognito.</li>
+        <li><b>Kết quả đạt được:</b>
+            <ul>
+                <li><b>Module 50 & 51 (Migrate & CI/CD):</b> Phân rã Monolith và xây dựng đường ống CI/CD tự động phát hành ứng dụng (Auto-release).</li>
+                <li><b>Module 52 & 53 (Microservices & Data):</b> Thiết kế các microservices độc lập và tái cấu trúc luồng dữ liệu phân tán.</li>
+                <li><b>Module 54 & 55 (Messaging & SPA):</b> Cấu hình hệ thống nhắn tin bất đồng bộ, định tuyến sự kiện và xây dựng ứng dụng Frontend Single Page Application (SPA).</li>
+                <li><b>Module 47 & 56:</b> Cấu hình AWS Step Functions để điều phối quy trình công việc phức tạp và tích hợp các dịch vụ trí tuệ nhân tạo (AI Services).</li>
+                <li><b>Module 78 & 79:</b> Viết các hàm AWS Lambda kết nối với DynamoDB và S3; cấu hình API Gateway để tiếp nhận request từ Frontend.</li>
+                <li><b>Module 80 & 81:</b> Đóng gói ứng dụng Serverless bằng AWS SAM; thiết lập xác thực người dùng tập trung bằng Amazon Cognito.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Tuần 8: Triển khai Hạ tầng Khai báo (IaC) & Bảo mật Zero-Trust nâng cao</h3>
+    <ul>
+        <li><b>Mục tiêu:</b> Tự động hóa toàn bộ hạ tầng bằng Terraform và tối ưu hóa chi phí FinOps.</li>
+        <li><b>Kết quả đạt được:</b>
+            <ul>
+                <li>Viết toàn bộ mã nguồn Terraform để khởi tạo VPC, ECS Fargate, ALB, RDS, WAF, CloudFront, Route 53 từ con số 0.</li>
+                <li><b>Tối ưu chi phí FinOps:</b> Thiết kế mạng loại bỏ NAT Gateway (chạy ECS trong Public Subnets), áp dụng ECS Fargate Spot (tiết kiệm 70%) và lập lịch tự động tắt RDS ngoài giờ làm việc. Giảm tổng chi phí vận hành từ 147.18 USD xuống còn 56.99 USD/tháng (tiết kiệm 61%).</li>
+                <li>Tích hợp AWS WAF v2 chống tấn công SQLi, bảo vệ biên thông qua Amazon CloudFront CDN và định tuyến Route 53.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Tuần 9: Bảo mật Credentials Chặng cuối & So sánh VPC Link</h3>
+    <ul>
+        <li><b>Mục tiêu:</b> Bảo vệ thông tin nhạy cảm và nghiên cứu kết nối mạng API Gateway.</li>
+        <li><b>Kết quả đạt được:</b>
+            <ul>
+                <li>Ứng dụng AWS Secrets Manager để lưu trữ thông tin đăng nhập RDS, viết hàm Lambda tự động xoay vòng mật khẩu (Rotation) sau mỗi 30 ngày để đảm bảo an toàn tuyệt đối chặng cuối (last-mile credentials).</li>
+                <li>Đánh giá chi tiết cơ chế hoạt động của VPC Link: Đối chiếu Private Integration của REST API (dựa trên AWS PrivateLink kết hợp NLB) và HTTP API (dựa trên AWS Hyperplane hỗ trợ ALB/Cloud Map).</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Tuần 10: Vận hành Thực tế và Triển khai Frontend lên S3</h3>
+    <ul>
+        <li><b>Mục tiêu:</b> Đưa Frontend tĩnh lên Cloud và cấu hình ALB điều phối lưu lượng.</li>
+        <li><b>Kết quả đạt được:</b>
+            <ul>
+                <li>Biên dịch mã nguồn React Frontend thành sản phẩm tĩnh, khởi tạo S3 Bucket chặn hoàn toàn truy cập trực tiếp từ Internet, đồng bộ hóa mã nguồn tĩnh bằng lệnh <code>aws s3 sync</code>.</li>
+                <li>Khởi tạo bộ cân bằng tải Application Load Balancer (saashr-alb) và cấu hình các quy tắc định tuyến thông minh dựa trên đường dẫn (Path-based Routing): <code>/api/v1/auth/*</code> chuyển tới tg-auth, <code>/api/v1/tenants/*</code> chuyển tới tg-tenants, và <code>/api/v1/hr/*</code> chuyển tới tg-hr.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>III. KẾT LUẬN & ĐÁNH GIÁ CHUNG</h2>
+    <p>Qua 10 tuần học tập và triển khai thực tế trên hạ tầng đám mây AWS, hệ thống báo cáo thực tập (Worklog) và dự án SaaS HR Multi-tenant đã được hoàn thiện với đầy đủ các tiêu chuẩn kỹ thuật cao:</p>
+    <ol>
+        <li><b>Về mặt hạ tầng mạng & bảo mật:</b> Áp dụng triệt để nguyên lý đặc quyền tối thiểu (Least Privilege) của IAM, thiết kế mạng riêng biệt (VPC, Subnets, Security Groups), bảo vệ dữ liệu với Secrets Manager và tích hợp WAF/CloudFront ở biên để phòng chống tấn công.</li>
+        <li><b>Về mặt tối ưu chi phí (FinOps):</b> Triển khai thành công các giải pháp tiết kiệm tối đa như ECS Fargate Spot, RDS scheduling và VPC không NAT, giúp hệ thống vận hành ổn định với chi phí thấp nhất.</li>
+        <li><b>Về mặt công nghệ Worklog:</b> Website báo cáo hoạt động nhanh, mượt mà nhờ Hugo. Giải quyết triệt để vấn đề vỡ giao diện và lỗi đường dẫn ảnh thông qua cơ chế Render Hooks tự động tiền tố đường dẫn ảnh phù hợp với GitHub Pages.</li>
+    </ol>
+
+    <div style="margin-top: 50px;">
+        <table style="border: none; width: 100%;">
+            <tr style="border: none;">
+                <td style="border: none; width: 50%; text-align: center;">
+                    <p class="bold">Người duyệt báo cáo</p>
+                    <p style="margin-top: 60px; font-style: italic;">(Ký và ghi rõ họ tên)</p>
+                </td>
+                <td style="border: none; width: 50%; text-align: center;">
+                    <p class="bold">Người làm báo cáo</p>
+                    <p style="margin-top: 60px; font-style: italic;">Lê Mạnh Cường</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>
