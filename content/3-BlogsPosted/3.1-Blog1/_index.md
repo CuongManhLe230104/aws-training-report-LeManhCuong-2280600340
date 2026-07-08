@@ -1,52 +1,39 @@
 ---
-title: "Secure Database Credentials for AWS Lambda with AWS Secrets Manager"
-date: 2026-06-15
+title: "Blog 1"
+date: 2026-06-19
 weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
 
-# How to Securely Provide Database Credentials to Lambda Functions by Using AWS Secrets Manager
+# SECURELY PROVIDING DATABASE CREDENTIALS TO LAMBDA FUNCTIONS USING AWS SECRETS MANAGER
 
-During the development of Serverless applications, one of the biggest challenges is how to store and pass database credentials to AWS Lambda functions securely. Hardcoding passwords in source code or passing them through environment variables always poses a high risk of leaking sensitive information.
+Using AWS Secrets Manager allows you to secure database credentials and pass them to AWS Lambda functions when connecting to Amazon RDS (MySQL). This solution eliminates the need to hardcode passwords in source code or pass them via environment variables, thereby protecting the backend database more securely. Additionally, the automatic periodic password rotation feature helps minimize security risks.
 
-Using **AWS Secrets Manager** eliminates these risks by centrally storing database credentials and allowing Lambda functions to query them dynamically when connecting to Amazon RDS (MySQL).
+The operational model of the solution includes
 
----
+* The client sends a Request to a RESTful API hosted on AWS API Gateway.
+* API Gateway executes the corresponding AWS Lambda function.
+* The Lambda function calls the AWS Secrets Manager API to retrieve database login information (username/password).
+* The Lambda function uses that information to connect, query the Amazon RDS (MySQL) database, and return the results.
 
-## 1. Solution Operation Model
+Deployment process via CloudFormation:
 
-The process of securely handling connection requests from a client to a backend database includes the following steps:
+An AWS CloudFormation template is used to automate the provisioning of:
 
-1. The **Client** sends a Request to the RESTful API hosted on **AWS API Gateway**.
-2. **API Gateway** executes the corresponding **AWS Lambda** function.
-3. The **Lambda** function calls the **AWS Secrets Manager** API to retrieve database credentials (username/password).
-4. The **Lambda** function uses that information to connect, query the **Amazon RDS (MySQL)** database, and return results.
+* An RDS MySQL database (db.t3.micro instance type).
+* Two Lambda functions: One (LambdaRDSCFNInit) to create an Employees table and insert sample data immediately after stack creation; another (LambdaRDSTest) to query the employee count.
+* A RESTful API Gateway with a GET method.
+* A Secret resource in Secrets Manager with a randomly generated password.
 
-![AWS Secrets Manager Database Rotation](/images/week9_secretsmanager.png)
+Key technical points:
 
----
+* **Dynamic References:** CloudFormation uses dynamic references to retrieve the password from Secrets Manager when creating the RDS instance. This ensures CloudFormation does not log or store the password in plain text.
+* **Automatic Rotation:** The AWS SecretsManager RotationSchedule resource is configured in coordination with a rotation Lambda function to automatically change the RDS database password every 30 days.
 
-## 2. Deployment Process via CloudFormation
+Combining Lambda with AWS Secrets Manager helps automatically manage the lifecycle of sensitive information, reduces the operational cost of dedicated security infrastructure, and significantly enhances the security of Serverless applications.
 
-To automate and manage infrastructure as code (IaC), the post provides an AWS CloudFormation template to quickly initialize:
+![Image](/images/3-BlogsPosted/blog1.1.jpg)
 
-* An **Amazon RDS MySQL** database (instance type `db.t3.micro`).
-* Two **Lambda** functions:
-  * `LambdaRDSCFNInit`: Used to initialize the `Employees` table and insert sample data immediately after stack initialization.
-  * `LambdaRDSTest`: Used to query the employee count for testing.
-* A **RESTful API Gateway** with a `GET` method.
-* A **Secret** resource in Secrets Manager containing a randomly generated password.
-
----
-
-## 3. Key Technical Takeaways
-
-* **Dynamic References:** CloudFormation uses dynamic references to retrieve the password directly from Secrets Manager when creating the RDS instance. This ensures that the password is never logged or stored in plain text in config files.
-* **Automatic Rotation:** Configuring the `AWS::SecretsManager::RotationSchedule` resource in coordination with a rotation Lambda function to automatically change the RDS database password every **30 days**, minimizing risks if credentials are leaked.
-
-Combining Lambda with AWS Secrets Manager helps enterprises automate the lifecycle of sensitive credentials, reduce overhead costs of maintaining separate security infrastructure, and significantly enhance the security level of Serverless applications.
-
----
-
-* **Original Blog Link:** [How to securely provide database credentials to Lambda functions by using AWS Secrets Manager](https://aws.amazon.com/blogs/security/how-to-securely-provide-database-credentials-to-lambda-functions-by-using-aws-secrets-manager/)
+- **Post Link:** [AWS Study Group Facebook Post](https://www.facebook.com/groups/awsstudygroupfcj/posts/2187144322050528)
+- **Blog Link:** [How to securely provide database credentials to Lambda functions by using AWS Secrets Manager](https://aws.amazon.com/vi/blogs/security/how-to-securely-provide-database-credentials-to-lambda-functions-by-using-aws-secrets-manager/?fbclid=IwY2xjawS3AUNleHRuA2FlbQIxMABicmlkETFWanVNbWhjdjRGR0g4NEFxc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHu4APzf301MYy7P9_61k2xiY8s_uPcppPQp_j0D1ebu-DsVcDHbhTa6vYkDd_aem_n-kVGqUxYdH_v_p1Btu0RA)

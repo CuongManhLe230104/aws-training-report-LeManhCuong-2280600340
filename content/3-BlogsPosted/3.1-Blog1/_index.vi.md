@@ -1,52 +1,39 @@
 ---
-title: "Bảo mật database credentials cho AWS Lambda với AWS Secrets Manager"
-date: 2026-06-15
+title: "Blog 1"
+date: 2026-06-19
 weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
 
-# Sử dụng AWS Secrets Manager bảo mật database credentials cho AWS Lambda
+# CUNG CẤP THÔNG TIN XÁC THỰC CƠ SỞ DỮ LIỆU BẢO MẬT CHO CÁC HÀM LAMBDA BẰNG AWS SECRETS MANAGER
 
-Trong quá trình phát triển các ứng dụng Serverless, một trong những thách thức lớn nhất là làm thế nào để lưu trữ và truyền thông tin xác thực cơ sở dữ liệu (credentials) đến các hàm AWS Lambda một cách an toàn. Việc lưu trữ trực tiếp (hardcode) mật khẩu trong mã nguồn hoặc truyền qua biến môi trường (Environment Variables) luôn tiềm ẩn rủi ro rò rỉ thông tin nhạy cảm.
+Sử dụng AWS Secrets Manager giúp bảo mật credentials của cơ sở dữ liệu và truyền chúng cho các hàm AWS Lambda khi kết nối với Amazon RDS (MySQL). Giải pháp này giúp loại bỏ việc hardcode mật khẩu trong mã nguồn hoặc truyền qua các biến môi trường, từ đó bảo vệ cơ sở dữ liệu backend một cách an toàn hơn. Ngoài ra, tính năng tự động rotate mật khẩu định kỳ giúp giảm thiểu rủi ro bảo mật.
 
-Giải pháp sử dụng **AWS Secrets Manager** giúp loại bỏ hoàn toàn các rủi ro trên bằng cách lưu trữ tập trung thông tin xác thực và cho phép các hàm Lambda truy vấn động khi kết nối với Amazon RDS (MySQL).
+Mô hình hoạt động của giải pháp bao gồm:
 
----
+* Client gửi Request đến RESTful API được lưu trữ trên AWS API Gateway.
+* API Gateway thực thi hàm AWS Lambda tương ứng.
+* Hàm Lambda gọi API của AWS Secrets Manager để lấy thông tin đăng nhập cơ sở dữ liệu (username/password).
+* Hàm Lambda sử dụng thông tin đó để kết nối, truy vấn cơ sở dữ liệu Amazon RDS (MySQL) và trả lại kết quả.
 
-## 1. Mô hình hoạt động của giải pháp
+Quy trình triển khai thông qua CloudFormation
 
-Quy trình xử lý yêu cầu kết nối an toàn từ Client đến cơ sở dữ liệu Backend được mô tả qua các bước sau:
+Giải pháp sử dụng một template AWS CloudFormation để tự động hóa việc khởi tạo:
 
-1. **Client** gửi Request đến RESTful API được lưu trữ trên **AWS API Gateway**.
-2. **API Gateway** thực thi hàm **AWS Lambda** tương ứng.
-3. Hàm **Lambda** gọi API của **AWS Secrets Manager** để lấy thông tin đăng nhập cơ sở dữ liệu (username/password).
-4. Hàm **Lambda** sử dụng thông tin đó để kết nối, truy vấn cơ sở dữ liệu **Amazon RDS (MySQL)** và trả lại kết quả.
+* Một cơ sở dữ liệu RDS MySQL (loại instance db.t3.micro).
+* Hai hàm Lambda: Một hàm (LambdaRDSCFNInit) dùng để tạo bảng Employees và thêm dữ liệu mẫu ngay sau khi khởi tạo stack; một hàm (LambdaRDSTest) dùng để truy vấn đếm số lượng nhân viên.
+* Một RESTful API Gateway với phương thức GET.
+* Một tài nguyên Secret trong Secrets Manager với mật khẩu được tạo ngẫu nhiên.
 
-![AWS Secrets Manager Database Rotation](/images/week9_secretsmanager.png)
+Điểm cốt lõi về mặt kỹ thuật:
 
----
+* **Tham chiếu động (Dynamic References):** CloudFormation sử dụng tính năng tham chiếu động để lấy mật khẩu từ Secrets Manager khi tạo RDS instance. Điều này đảm bảo CloudFormation không ghi log hoặc lưu lại mật khẩu dưới dạng văn bản thuần túy (plain text).
+* **Tự động xoay vòng mật khẩu (Automatic Rotation):** Cấu hình tài nguyên AWS SecretsManager RotationSchedule phối hợp với một hàm Lambda xoay vòng để tự động thay đổi mật khẩu cơ sở dữ liệu RDS sau mỗi 30 ngày.
 
-## 2. Quy trình triển khai thông qua CloudFormation
+Việc kết hợp Lambda với AWS Secrets Manager giúp tự động quản lý vòng đời của các thông tin nhạy cảm, giảm chi phí vận hành hạ tầng bảo mật riêng và nâng cao đáng kể mức độ an toàn cho các ứng dụng Serverless.
 
-Để tự động hóa và quản lý hạ tầng dưới dạng mã (IaC), bài viết cung cấp một template AWS CloudFormation để khởi tạo nhanh cụm tài nguyên bao gồm:
+![Hình Ảnh](/images/3-BlogsPosted/blog1.1.jpg)
 
-* Một cơ sở dữ liệu **Amazon RDS MySQL** (loại instance `db.t3.micro`).
-* Hai hàm **Lambda**:
-  * `LambdaRDSCFNInit`: Dùng để khởi tạo bảng `Employees` và thêm dữ liệu mẫu ngay sau khi khởi tạo stack.
-  * `LambdaRDSTest`: Dùng để truy vấn đếm số lượng nhân viên thực tế phục vụ kiểm thử.
-* Một **RESTful API Gateway** với phương thức `GET`.
-* Một tài nguyên **Secret** trong Secrets Manager chứa mật khẩu được tạo ngẫu nhiên.
-
----
-
-## 3. Các điểm cốt lõi về mặt kỹ thuật
-
-* **Tham chiếu động (Dynamic References):** CloudFormation sử dụng tính năng tham chiếu động để lấy mật khẩu trực tiếp từ Secrets Manager khi tạo RDS instance. Điều này đảm bảo mật khẩu không bao giờ được ghi log hay lưu lại dưới dạng văn bản thuần túy (plain text) trong các file cấu hình.
-* **Tự động xoay vòng mật khẩu (Automatic Rotation):** Cấu hình tài nguyên `AWS::SecretsManager::RotationSchedule` phối hợp với một hàm Lambda xoay vòng để tự động thay đổi mật khẩu cơ sở dữ liệu RDS định kỳ sau mỗi **30 ngày**, giảm thiểu tối đa rủi ro khi mật khẩu bị rò rỉ.
-
-Việc kết hợp Lambda với AWS Secrets Manager giúp doanh nghiệp quản lý vòng đời của các thông tin nhạy cảm một cách tự động, giảm chi phí vận hành hạ tầng bảo mật riêng, và nâng cao đáng kể mức độ an toàn cho các ứng dụng Serverless.
-
----
-
-* **Link bài viết gốc:** [How to securely provide database credentials to Lambda functions by using AWS Secrets Manager](https://aws.amazon.com/blogs/security/how-to-securely-provide-database-credentials-to-lambda-functions-by-using-aws-secrets-manager/)
+- **Link bài viết:** [Bài viết trên AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj/posts/2187144322050528)
+- **Link blog:** [How to securely provide database credentials to Lambda functions by using AWS Secrets Manager](https://aws.amazon.com/vi/blogs/security/how-to-securely-provide-database-credentials-to-lambda-functions-by-using-aws-secrets-manager/?fbclid=IwY2xjawS3AUNleHRuA2FlbQIxMABicmlkETFWanVNbWhjdjRGR0g4NEFxc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHu4APzf301MYy7P9_61k2xiY8s_uPcppPQp_j0D1ebu-DsVcDHbhTa6vYkDd_aem_n-kVGqUxYdH_v_p1Btu0RA)

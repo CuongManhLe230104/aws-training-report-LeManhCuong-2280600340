@@ -1,0 +1,143 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+    <title>Bảng review nội dung công việc tuần</title>
+    <!--[if gte mso 9]>
+    <xml>
+        <w:WordDocument>
+            <w:View>Print</w:View>
+            <w:Zoom>100</w:Zoom>
+            <w:DoNotOptimizeForBrowser/>
+        </w:WordDocument>
+    </xml>
+    <![endif]-->
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            font-size: 12pt;
+            line-height: 1.5;
+            color: #000000;
+            margin: 1in;
+        }
+        h1 {
+            font-size: 16pt;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table, th, td {
+            border: 1px solid #000000;
+        }
+        th {
+            background-color: #D9D9D9;
+            font-weight: bold;
+            padding: 10px;
+            text-align: center;
+            font-size: 12pt;
+        }
+        td {
+            padding: 10px;
+            vertical-align: middle;
+            font-size: 11pt;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .bold {
+            font-weight: bold;
+        }
+        .meta-info {
+            margin-bottom: 20px;
+            font-size: 12pt;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>BẢNG TỔNG HỢP NỘI DUNG THỰC TẬP HÀNG TUẦN</h1>
+    
+    <div class="meta-info">
+        <p>Họ và tên: Lê Mạnh Cường</p>
+        <p>MSSV: 2280600340</p>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 100px;">Tuần</th>
+                <th style="width: 180px;">Thời gian</th>
+                <th>Nội dung công việc đã thực hiện</th>
+            </tr>
+        </thead>
+        <tbody>
+    <tr>
+        <td class="text-center bold" style="vertical-align: middle; background-color: #F9F9F9; width: 100px;">Tuần 1</td>
+        <td class="text-center bold" style="vertical-align: middle; background-color: #FAFAFA; width: 180px;">17/04/2026 - 22/04/2026</td>
+        <td style="text-align: justify;">Làm quen với cộng đồng FCAJ và tìm hiểu các nhóm dịch vụ cơ bản của AWS (Compute, Storage, Networking, Database). Thực hiện đăng ký tài khoản AWS Free Tier, cấu hình AWS CLI trên máy tính cá nhân, khởi tạo máy chủ EC2 Linux để kết nối SSH, thiết lập AWS Budgets kiểm soát chi phí và chạy hàm Lambda đơn giản kết nối với cơ sở dữ liệu RDS.</td>
+    </tr>
+    <tr>
+        <td class="text-center bold" style="vertical-align: middle; background-color: #F9F9F9; width: 100px;">Tuần 2</td>
+        <td class="text-center bold" style="vertical-align: middle; background-color: #FAFAFA; width: 180px;">27/04/2026 - 03/05/2026</td>
+        <td style="text-align: justify;">Nghiên cứu dịch vụ quản lý định danh AWS IAM, thực hành tạo User, Group, Policy, Role và cấu hình tính năng Switch Role an toàn cho OperatorUser. Khởi tạo hạ tầng mạng VPC với đầy đủ các thành phần Subnets (Public/Private), Route Tables, Internet Gateway và NAT Gateway. Thiết lập bảo mật mạng với Security Groups, Network ACLs, ghi log lưu lượng qua Flow Logs và kiểm tra thông mạng bằng Reachability Analyzer.</td>
+    </tr>
+    <tr>
+        <td class="text-center bold" style="vertical-align: middle; background-color: #F9F9F9; width: 100px;">Tuần 3</td>
+        <td class="text-center bold" style="vertical-align: middle; background-color: #FAFAFA; width: 180px;">04/05/2026 - 09/05/2026</td>
+        <td style="text-align: justify;">Chuẩn bị môi trường máy chủ EC2 Windows để triển khai hệ thống quản lý định danh doanh nghiệp Microsoft Active Directory (AD) trên hạ tầng đám mây AWS. Thiết lập kết nối từ xa bảo mật cao thông qua Remote Desktop Gateway (RDGW) và cấu hình phân giải tên miền DNS. Khởi tạo liên thông mạng VPC Peering giữa các vùng mạng khác nhau và thiết lập Cross-Peer DNS để giải quyết vấn đề phân giải tên miền chéo.</td>
+    </tr>
+    <tr>
+        <td class="text-center bold" style="vertical-align: middle; background-color: #F9F9F9; width: 100px;">Tuần 4</td>
+        <td class="text-center bold" style="vertical-align: middle; background-color: #FAFAFA; width: 180px;">11/05/2026 - 17/05/2026</td>
+        <td style="text-align: justify;">Triển khai môi trường máy chủ Web LAMP/XAMPP trên EC2 và cài đặt ứng dụng Node.js CRUD thực tế với phân quyền IAM giới hạn theo địa lý. Cấu hình cơ sở dữ liệu Amazon RDS (MySQL), thiết lập cơ chế sao lưu Snapshot tự động, tìm hiểu tính năng Multi-AZ dự phòng và Read Replicas mở rộng đọc. Khởi tạo dịch vụ lưu trữ đối tượng Amazon S3, cấu hình Bucket Policy bảo mật, bật tính năng Versioning và cấu hình Static Website Hosting.</td>
+    </tr>
+    <tr>
+        <td class="text-center bold" style="vertical-align: middle; background-color: #F9F9F9; width: 100px;">Tuần 5</td>
+        <td class="text-center bold" style="vertical-align: middle; background-color: #FAFAFA; width: 180px;">18/05/2026 - 24/05/2026</td>
+        <td style="text-align: justify;">Tự động hóa quản lý tài nguyên thông qua viết script AWS CLI. Triển khai ứng dụng mẫu trên AWS Lightsail và thiết lập phân phối CDN CloudFront tích hợp với S3 Static Website sử dụng Origin Access Control (OAC). Đóng gói ứng dụng bằng Docker, đẩy lên Amazon ECR và gán IAM Role trực tiếp cho EC2. Thực hành nhập máy ảo (VM Import/Export) lên EC2, cấu hình AWS Backup tự động hóa sao lưu và giám sát hệ thống qua CloudWatch Logs.</td>
+    </tr>
+    <tr>
+        <td class="text-center bold" style="vertical-align: middle; background-color: #F9F9F9; width: 100px;">Tuần 6</td>
+        <td class="text-center bold" style="vertical-align: middle; background-color: #FAFAFA; width: 180px;">25/05/2026 - 31/05/2026</td>
+        <td style="text-align: justify;">Thiết kế kiến trúc hệ thống API Microservices cho dự án SaaS HR Multi-tenant bao gồm dịch vụ xác thực (auth-service), dịch vụ nhân sự (hr-service) và dịch vụ doanh nghiệp (tenant-service). Lập trình các API phân quyền vai trò (Owner, Admin, Member) và trích xuất tenant_id từ JWT token để bảo đảm cô lập dữ liệu. Tích hợp định tuyến toàn bộ hệ thống API thông qua Nginx API Gateway.</td>
+    </tr>
+    <tr>
+        <td class="text-center bold" style="vertical-align: middle; background-color: #F9F9F9; width: 100px;">Tuần 7</td>
+        <td class="text-center bold" style="vertical-align: middle; background-color: #FAFAFA; width: 180px;">01/06/2026 - 07/06/2026</td>
+        <td style="text-align: justify;">Hiện đại hóa ứng dụng bằng cách phân rã ứng dụng Monolith thành các Microservices độc lập và thiết lập đường ống CI/CD tự động phát hành. Đóng gói ứng dụng Serverless bằng AWS SAM, xây dựng các hàm Lambda kết nối DynamoDB và S3, thiết lập xác thực tập trung với Cognito User Pools và điều phối quy trình công việc phức tạp thông qua Step Functions.</td>
+    </tr>
+    <tr>
+        <td class="text-center bold" style="vertical-align: middle; background-color: #F9F9F9; width: 100px;">Tuần 8</td>
+        <td class="text-center bold" style="vertical-align: middle; background-color: #FAFAFA; width: 180px;">08/06/2026 - 14/06/2026</td>
+        <td style="text-align: justify;">Tự động hóa toàn bộ hạ tầng đám mây (IaC) thông qua viết mã nguồn Terraform để khởi tạo VPC, ECS Fargate, ALB, RDS, WAF, CloudFront và Route 53. Áp dụng các chiến lược FinOps tối ưu hóa chi phí như lập lịch tắt RDS ngoài giờ làm việc, sử dụng ECS Fargate Spot và loại bỏ hoàn toàn NAT Gateway bằng cách chạy ECS trong Public subnets giúp giảm 61% chi phí vận hành.</td>
+    </tr>
+    <tr>
+        <td class="text-center bold" style="vertical-align: middle; background-color: #F9F9F9; width: 100px;">Tuần 9</td>
+        <td class="text-center bold" style="vertical-align: middle; background-color: #FAFAFA; width: 180px;">15/06/2026 - 21/06/2026</td>
+        <td style="text-align: justify;">Bảo mật thông tin đăng nhập chặng cuối bằng cách lưu trữ RDS credentials trên AWS Secrets Manager và thiết lập cơ chế Lambda tự động xoay vòng mật khẩu (Rotation Schedule) định kỳ 30 ngày. Đánh giá và đối chiếu chi tiết kiến trúc kết nối riêng tư (Private Integration) thông qua VPC Link giữa API Gateway với hệ thống backend nội bộ cho cả REST API và HTTP API.</td>
+    </tr>
+    <tr>
+        <td class="text-center bold" style="vertical-align: middle; background-color: #F9F9F9; width: 100px;">Tuần 10</td>
+        <td class="text-center bold" style="vertical-align: middle; background-color: #FAFAFA; width: 180px;">22/06/2026 - 28/06/2026</td>
+        <td style="text-align: justify;">Biên dịch mã nguồn React Frontend thành sản phẩm tĩnh và đồng bộ hóa an toàn lên Amazon S3 thông qua lệnh aws s3 sync sử dụng AWS CLI kết hợp tính năng chặn truy cập công cộng (Block Public Access). Khởi tạo bộ cân bằng tải Application Load Balancer (ALB) và thiết lập các Target Groups để cấu hình các quy tắc định tuyến dựa trên đường dẫn (Path-based Routing) cho các microservices backend.</td>
+    </tr>
+    <tr>
+        <td class="text-center bold" style="vertical-align: middle; background-color: #F9F9F9; width: 100px;">Tuần 11</td>
+        <td class="text-center bold" style="vertical-align: middle; background-color: #FAFAFA; width: 180px;">29/06/2026 - 05/07/2026</td>
+        <td style="text-align: justify;">Khởi tạo khung xương tài liệu Báo cáo thực tập chuyên nghiệp. Rà soát, căn chỉnh định dạng các bảng biểu mục tiêu và kết quả từ Tuần 1 đến Tuần 10. Biên soạn bài viết kỹ thuật chuyên sâu đúc kết kiến trúc Cloud-Native, Zero-Trust và FinOps tối ưu chi phí trên AWS. Thực hiện biên dịch và deploy thành công trang web báo cáo lên GitHub Pages.</td>
+    </tr>
+    <tr>
+        <td class="text-center bold" style="vertical-align: middle; background-color: #F9F9F9; width: 100px;">Tuần 12</td>
+        <td class="text-center bold" style="vertical-align: middle; background-color: #FAFAFA; width: 180px;">06/07/2026 - 12/07/2026</td>
+        <td style="text-align: justify;">Hoàn thiện trang web Báo cáo thực tập với đầy đủ các chương mục (Worklogs, Proposal, Blogs, Events, Self-evaluation, Feedback). Hoàn thành biên soạn hồ sơ thực tập gồm: Báo cáo thực tập tốt nghiệp (Báo cáo TTTN), các phiếu theo dõi tiến độ tuần, phiếu tự đánh giá kết quả thực tập và tiến hành nghiệm thu bàn giao dự án.</td>
+    </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

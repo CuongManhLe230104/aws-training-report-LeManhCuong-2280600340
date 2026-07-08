@@ -1,49 +1,42 @@
 ---
-title: "Proactive Infrastructure Monitoring using Ambient Agents on Amazon Bedrock"
+title: "Blog 2"
 date: 2026-06-20
 weight: 2
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
 
-# Proactive AWS Monitoring with Ambient Agents on Amazon Bedrock (AgentWatch)
+# PROACTIVE INFRASTRUCTURE MONITORING SOLUTION USING AMBIENT AGENTS ON AMAZON BEDROCK
 
-In managing large-scale cloud infrastructure (Multi-Account/Multi-Region), handling a massive volume of alarms (Alert Fatigue) from Amazon CloudWatch often consumes significant time from operations teams. Traditional rule-based monitoring systems sometimes only detect issues after they have occurred, making it difficult to correlate log and metric data for Root Cause Analysis.
+In large-scale cloud infrastructure management (Multi-Account/Multi-Region), handling a massive volume of alerts (Alert Fatigue) from Amazon CloudWatch often consumes a significant amount of the operations team's time. Traditional rule-based monitoring systems sometimes only detect issues after they have occurred, making it difficult to correlate log and metric data for Root Cause Analysis.
 
-The **AgentWatch** solution provides a continuous **Ambient Agent** model that supports engineers in gathering infrastructure data, analyzing system behavior, and providing Actionable Insights to optimize operational workflows.
+The AgentWatch solution provides a continuously operating Ambient Agent model, assisting engineering teams in gathering infrastructure data, analyzing system behavior, and providing Actionable Insights to optimize operational workflows.
 
----
+Operational Architecture & Human-in-the-Loop Coordination:
 
-## 1. Operational Architecture & Human-in-the-Loop (HITL) Mechanism
+AgentWatch is designed to operate alongside humans by combining automation with a strict approval process (Human-in-the-Loop - HITL), consisting of two main processing flows:
 
-AgentWatch is designed to work alongside humans through a combination of automation and strict approval workflows (Human-in-the-Loop - HITL), consisting of two main streams:
+* **Scheduled Ambient Monitoring:** Triggered periodically every 15 minutes by Amazon EventBridge. A LangChain Agent task integrating the Claude model on Amazon Bedrock uses dedicated APIs to query CloudWatch metrics, logs, and alarms from multiple AWS accounts. The LLM then processes the data, extracts key information, and sends a report to the team's Slack channel.
+* **On-Demand Interaction & HITL Control:** Engineers can directly query the Agent in real-time via Slack Slash Commands (e.g., `/ask Analyze log patterns for the last hour`). The system categorizes tasks based on risk levels: tasks involving reading information or trend analysis are processed automatically; meanwhile, sensitive infrastructure configuration changes strictly require a 3-step control process: Notify, Question (Clarification), and Review (Pending human approval).
 
-* **Scheduled Ambient Monitoring:** Triggered periodically every 15 minutes by Amazon EventBridge. A LangChain Agent task integrated with the Claude model on Amazon Bedrock uses dedicated APIs to query CloudWatch metrics, logs, and alarms across multiple AWS accounts. The data is then processed by the LLM, key information is extracted, and reports are sent to the team's Slack channel.
-* **On-demand Interaction and HITL Control:** Engineers can query the Agent directly in real-time via Slack Slash Commands (e.g., `/ask Analyze log patterns for the last hour`). The system classifies tasks based on risk level: read-only tasks or trend analysis are processed automatically; while sensitive configuration changes require a 3-step control workflow: Notify, Question, and Review (waiting for human approval).
+Core AWS Services in the Architecture:
 
-![Slack Ambient Agent Architecture](/images/week10_agentwatch.png)
+The solution builds an automated workflow (Agentic Workflow) based on the coordination of Cloud-Native services:
 
----
-
-## 2. Core AWS Services in the Architecture
-
-The solution builds an automated agentic workflow based on the collaboration of Cloud-Native services:
-
-* **Amazon Bedrock & Bedrock AgentCore Runtime:** The platform providing the Foundation Model and secure serverless runtime environment to operate AI Agents at enterprise scale.
+* **Amazon Bedrock & Bedrock AgentCore Runtime:** The platform providing the Foundation Model and a secure serverless runtime environment to operate AI Agents at an enterprise scale.
 * **Amazon EventBridge & AWS Lambda:** Acts as the scheduler and orchestrator for the Agent's workflow.
-* **Amazon CloudWatch & AWS STS:** Provides centralized telemetry data and the cross-account assume role mechanism.
-* **Amazon API Gateway & Amazon Cognito:** Ensures access control and security (OAuth 2.0) for webhooks from Slack.
+* **Amazon CloudWatch & AWS STS:** Provides centralized telemetry data and the assume role mechanism for Cross-Account Monitoring.
+* **Amazon API Gateway & Amazon Cognito:** Ensures access control and OAuth 2.0 security for endpoints receiving webhooks from Slack.
 
----
+Practical Application Benefits:
 
-## 3. Real-World Application Benefits
+* **Anomaly Detection Support:** The LLM's Natural Language Understanding (NLU) capabilities help link discrete signals from system logs and metrics, aiding in the detection of anomalies that fixed rule-based configurations might miss.
+* **MTTR Reduction Support:** The Agent automatically performs initial context gathering and analysis steps as soon as an alert is detected, providing foundational information to help engineers shorten diagnostic time.
+* **Compliance and Governance Assurance:** Reduces repetitive manual tasks for operational engineers while maintaining human control over the Production environment through clear approval steps.
 
-* **Anomaly Detection Assistance:** The LLM's natural language understanding (NLU) capability helps correlate disjointed signals from system logs and metrics, helping detect anomalies that rule-based systems might miss.
-* **Reduced Mean Time to Resolution (MTTR):** The Agent automatically gathers context and conducts initial analysis upon detecting an alert, providing background information to help engineers diagnose issues faster.
-* **Governance and Compliance:** Reduces repetitive manual tasks for operations engineers while maintaining human oversight of Production environments through explicit approval steps.
+Conclusion: The AgentWatch solution demonstrates the potential of applying Generative AI (Agentic architecture) in optimizing Cloud Operations, shifting monitoring systems from passive information display to more proactive data analysis support.
 
-The AgentWatch solution demonstrates the potential of Generative AI (Agentic architecture) in optimizing cloud operations, transforming traditional passive monitoring displays into proactive data analysis assistants.
+![Image](/images/3-BlogsPosted/blog2.1.jpg)
 
----
-
-* **Original Blog Link:** [AgentWatch: Proactive AWS monitoring with ambient agents](https://aws.amazon.com/blogs/machine-learning/agentwatch-proactive-aws-monitoring-with-ambient-agents/)
+- **Post Link:** [AWS Study Group Facebook Post](https://www.facebook.com/groups/awsstudygroupfcj/posts/2190168085081485)
+- **Blog Link:** [AgentWatch: Proactive AWS monitoring with ambient agents](https://aws.amazon.com/vi/blogs/machine-learning/agentwatch-proactive-aws-monitoring-with-ambient-agents/)

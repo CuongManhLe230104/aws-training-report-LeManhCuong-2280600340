@@ -30,6 +30,6 @@ The weekly achievements and tasks are summarized below:
 
 **Week 10:** [Static Frontend on S3 & Application Load Balancer (ALB) Routing](1.10-week10/) - Compiling and synchronizing React frontend to S3 with private access, and configuring ALB path-based routing.
 
-**Week 11:** [Reviewing system architectures and preparing for deployment](1.11-week11/) - Reviewing all microservices integrations and preparing final deployment blueprints.
+**Week 11:** [Report structuring, worklog review & GitHub deployment](1.11-week11/) - Initializing the internship report structure, standardizing all weekly worklogs, writing technical blog posts on cloud architectures and FinOps, and deploying the Hugo site to GitHub Pages.
 
-**Week 12:** [Completing final project report and packaging deliverables](1.12-week12/) - Packaging all project deliverables and completing the final internship training report.
+**Week 12:** [Internship report finalization & deliverables handover](1.12-week12/) - Finalizing the static report website, completing graduation internship reports (Báo cáo TTTN), weekly tracking forms, self-evaluation sheets, and executing final project handover.

@@ -30,6 +30,6 @@ Tóm tắt các thành tựu và công việc từng tuần như sau:
 
 **Tuần 10:** [Triển khai Frontend tĩnh lên S3 & Định tuyến Application Load Balancer (ALB)](1.10-week10/) - Biên dịch và đồng bộ mã nguồn React Frontend lên S3 bảo mật cao, cấu hình ALB định tuyến lưu lượng dựa trên đường dẫn (Path-based Routing).
 
-**Tuần 11:** [Đánh giá kiến trúc hệ thống và chuẩn bị triển khai](1.11-week11/) - Kiểm tra lại toàn bộ tích hợp microservices và chuẩn bị các bản vẽ kiến trúc hạ tầng cuối cùng.
+**Tuần 11:** [Khởi tạo cấu trúc báo cáo, chuẩn hóa worklog & deploy github](1.11-week11/) - Thiết lập khung sườn báo cáo thực tập, rà soát và định dạng chuẩn hóa worklogs Tuần 1-10, biên soạn các bài viết blog chia sẻ kinh nghiệm kỹ thuật, và tiến hành biên dịch/phát hành trang web báo cáo lên GitHub Pages.
 
-**Tuần 12:** [Hoàn thiện báo cáo dự án và đóng gói sản phẩm](1.12-week12/) - Đóng gói toàn bộ mã nguồn, tài nguyên dự án và hoàn thiện báo cáo thực tập chuyển giao cho đơn vị.
+**Tuần 12:** [Hoàn thiện báo cáo thực tập tốt nghiệp và bàn giao sản phẩm](1.12-week12/) - Hoàn thiện trang web báo cáo tĩnh, hoàn thành báo cáo thực tập tốt nghiệp (Báo cáo TTTN), các phiếu theo dõi tiến độ tuần, phiếu đánh giá và bàn giao toàn bộ sản phẩm thực tập.

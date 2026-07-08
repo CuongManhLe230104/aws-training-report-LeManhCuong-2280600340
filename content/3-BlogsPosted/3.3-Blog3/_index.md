@@ -1,50 +1,37 @@
 ---
-title: "Understanding VPC Links in Amazon API Gateway Private Integrations"
-date: 2026-06-25
+title: "Blog 3"
+date: 2026-06-26
 weight: 3
 chapter: false
 pre: " <b> 3.3. </b> "
 ---
 
-# Understanding VPC Links in Amazon API Gateway Private Integrations
 
-When designing and building highly secure API systems, hiding backend services within a private VPC network and not exposing them to the public Internet is a mandatory requirement. A **VPC Link** is a resource in Amazon API Gateway that allows connecting API routes to these private, internal resources securely.
+# VPC LINK IN PRIVATE INTEGRATIONS OF AMAZON API GATEWAY
 
-This post dives into the core technologies behind VPC Link (such as AWS Hyperplane and AWS PrivateLink) and compares the fundamental architectural differences between VPC Links for REST APIs and HTTP APIs.
+VPC link is a resource in Amazon API Gateway that allows connecting API routes to internal, private resources located within a VPC network. The article delves into the core technologies behind VPC Link (such as AWS Hyperplane and AWS PrivateLink) and compares the fundamental architectural differences between VPC Link for REST APIs and HTTP APIs.
 
----
+Core foundational technologies:
 
-## 1. Underlying Technologies
+* **AWS Hyperplane:** AWS's internal network virtualization platform that supports connection and routing between different VPCs. Hyperplane uses VPC-to-VPC NAT instead of PrivateLink.
+* **AWS PrivateLink:** Technology that allows accessing AWS services privately within the AWS internal network without routing through the public Internet. Traffic is routed through Interface VPC Endpoints (consumer side) and VPC Endpoint Services (provider side).
 
-* **AWS Hyperplane:** AWS's high-performance internal network virtualization platform, supporting connection and routing between different VPCs. Hyperplane uses a **VPC-to-VPC NAT** network address translation mechanism instead of PrivateLink.
-* **AWS PrivateLink:** Technology that allows accessing AWS services privately within the AWS internal network without going through the public Internet. Traffic is routed via Interface VPC Endpoints (user side) and VPC Endpoint Services (provider side).
+Distinguishing Private API and Private Integration:
 
----
+* **Private API:** Means the API Gateway Endpoint can only be accessed from within a VPC (or via Direct Connect/VPN). Currently, only REST APIs support configuring Private APIs.
+* **Private Integration:** Means the backend system (behind the API Gateway) is located within a VPC and is not publicly exposed to the Internet. API Gateway uses VPC Link to connect to this backend securely.
 
-## 2. Distinguishing Private API and Private Integration
+Comparing VPC Link for REST API vs. HTTP API:
 
-* **Private API:** Means the API Gateway endpoint itself can only be accessed from within the VPC (or via Direct Connect/VPN). Currently, only REST APIs support configuring Private APIs.
-* **Private Integration:** Means the backend system (behind the API Gateway) is located within the VPC and completely hidden from the public Internet. API Gateway uses a VPC Link to securely connect to this backend.
+* **Underlying technology:** The first difference lies in the underlying technology. VPC Link for REST APIs is based on AWS PrivateLink, while HTTP APIs use the VPC-to-VPC NAT network address translation system of AWS Hyperplane. This difference leads to major architectural changes underneath.
+* **Resources and integration capabilities:** HTTP APIs are significantly more flexible as they do not require a VPC Endpoint Service and can connect directly to ALBs, NLBs, or services via AWS Cloud Map; a single VPC Link can also associate with multiple backends. Conversely, REST APIs strictly require a VPC Endpoint Service, connect through a single NLB, and configuring multi-backends is much more complex.
+* **Features and IP addresses:** HTTP APIs leverage the Layer 7 power of ALBs (like advanced routing, authentication) and operate via an ENI tunneling mechanism. Meanwhile, REST APIs are more restricted at Layer 7 since they route through an NLB (Layer 4), and the backend system will identify the source IP as the private IP of the NLB itself.
 
----
+Understanding the differences between the two types of VPC Links helps architectural engineers make accurate decisions when designing systems. If you need a more cost-effective, faster API solution with flexible integration with ALBs or containers, VPC Link for HTTP APIs is the optimal choice. If you require the distinct, in-depth features of REST APIs, you will need to configure VPC Link via the PrivateLink mechanism with an NLB.
 
-## 3. Comparing VPC Links for REST APIs vs. HTTP APIs
+![Image 1](/images/3-BlogsPosted/blog3.1.jpg)
+![Image 2](/images/3-BlogsPosted/blog3.2.png)
+![Image 3](/images/3-BlogsPosted/blog3.3.png)
 
-The first difference lies in the underlying technology. REST API's VPC Link is based on **AWS PrivateLink**, while HTTP API uses the VPC-to-VPC NAT network address translation system of **AWS Hyperplane**. This difference leads to major changes in the underlying architecture:
-
-* **Resources and Integration Capabilities:** HTTP APIs are much more flexible as they do not require a VPC Endpoint Service but can connect directly to ALBs, NLBs, or services registered via AWS Cloud Map; a single VPC Link can also link to multiple different backends. Conversely, REST APIs require a VPC Endpoint Service, connect through a single NLB, and configuring multiple backends is much more complex.
-* **Features and IP Addressing:** HTTP APIs leverage the Layer 7 capabilities of ALBs (such as advanced routing, authentication) and operate by tunneling through ENIs. Meanwhile, REST APIs are more limited at Layer 7 since they route through an NLB (Layer 4), and the backend system will identify the source IP as the private IP of that NLB.
-
-![VPC Link HTTP API Architecture](/images/week9_vpclink_http_alb.png)
-
----
-
-## 4. Conclusion
-
-Understanding the differences between the two types of VPC Links helps solutions architects make accurate decisions when designing systems:
-* If you need a cost-effective, high-speed API solution that integrates flexibly with ALBs or containers, **VPC Link for HTTP APIs** is the optimal choice.
-* If you require specialized features of REST APIs, you will need to configure **VPC Link via the PrivateLink mechanism with an NLB**.
-
----
-
-* **Original Blog Link:** [Understanding VPC Links in Amazon API Gateway Private Integrations](https://aws.amazon.com/blogs/compute/understanding-vpc-links-in-amazon-api-gateway-private-integrations/)
+- **Post Link:** [AWS Study Group Facebook Post](https://www.facebook.com/groups/awsstudygroupfcj/posts/2194084638023163)
+- **Blog Link:** [Understanding VPC links in Amazon API Gateway private integrations](https://aws.amazon.com/vi/blogs/compute/understanding-vpc-links-in-amazon-api-gateway-private-integrations/?fbclid=IwY2xjawS3BcdleHRuA2FlbQIxMABicmlkETFWanVNbWhjdjRGR0g4NEFxc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHnd0siHru9JZp4Q6bMUgKNmulHBR7GCnCVUQsPz38_-8DjQKWSt0fGK1uS9s_aem_8iC52_t_hIPs-EySNErBaA)

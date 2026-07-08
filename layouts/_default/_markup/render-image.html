@@ -1,1 +1,5 @@
-<img src="{{ .Destination | strings.TrimPrefix "/" | relURL }}" alt="{{ .Text }}" {{ with .Title }} title="{{ . }}" {{ end }} />
+{{- $url := .Destination -}}
+{{- if not (strings.HasPrefix $url "http") -}}
+  {{- $url = $url | replaceRE `^(\.\./|\./|/)+` "" | relURL -}}
+{{- end -}}
+<img src="{{ $url }}" alt="{{ .Text }}" {{ with .Title }} title="{{ . }}" {{ end }} />

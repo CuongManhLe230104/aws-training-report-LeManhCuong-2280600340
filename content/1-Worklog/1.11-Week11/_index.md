@@ -1,55 +1,37 @@
 ---
 title: "Week 11 Worklog"
-date: 2024-01-01
+date: 2026-06-29
 weight: 11
 chapter: false
 pre: " <b> 1.11. </b> "
 ---
 
-
+**Internship Report Structure Initialization & Worklog Documentation Standardization**
+**Name:** Lê Mạnh Cường
+**ID:** 2280600340
 
 ### Week 11 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* **Report Architecture Preparation:** Collect system architectural diagrams and cost analysis reports (FinOps) to structure the final profile Internship Report.
+* **Worklog Documentation Review:** Review and format all objectives, tables, and achievements from Week 1 to Week 10 in both English and Vietnamese.
+* **Technical Blog Writing:** Draft and finalize technical blog posts reflecting hands-on cloud-native deployment experiences.
+* **Site Deployment:** Compile Hugo static site assets and deploy the training report site to GitHub Pages.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 1 | - Initialize the structure of the Profile Internship Report. <br> - Collect and classify system architecture diagrams and FinOps cost sheets from previous weeks. | 06/29/2026 | 06/29/2026 | |
+| 2 | - Review and standardize the Worklog content from Week 1 to Week 5. <br> - Reformat tables, objectives, and achievements. | 06/30/2026 | 06/30/2026 | |
+| 3 | - Continue updating and finalizing the Worklog from Week 6 to Week 10. <br> - Integrate the Worklogs into the report's source code. | 07/01/2026 | 07/01/2026 | |
+| 4 | - Draft the outline and start writing the first Blog Post summarizing hands-on cloud-native & zero-trust architectures on AWS. | 07/02/2026 | 07/02/2026 | |
+| 5 | - Finalize the second Blog Post on "Extreme Cost Optimization (FinOps) with AWS Fargate and RDS". <br> - Save the written blog posts into the local archives directory. | 07/03/2026 | 07/03/2026 | |
+| 6 | - Finalize the final draft of the Internship Report. <br> - Cross-check all hyperlinks, media, and spelling/grammar. | 07/04/2026 | 07/04/2026 | |
+| 7 | - Compile the static site and deploy to GitHub Pages. <br> - Verify the hosted website functionality. | 07/05/2026 | 07/05/2026 | [AWS Training Report](https://cuongmanhle230104.github.io/aws-training-report-LeManhCuong-2280600340/) |
 
 ### Week 11 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* **Structured Professional Report:** Established the complete structural skeleton for the Internship Report and organized all network diagrams and cost charts.
+* **Standardized Worklog Documentation:** Completed formatting 10 weeks of worklogs and resolved markdown image rendering hook issues on GitHub Pages.
+* **Published Technical Blogs:** Finalized and stored comprehensive blog posts on database credentials rotation via Secrets Manager, automated observability with Bedrock, and VPC Link private integration.
+* **Successfully Deployed Site:** Built the Hugo site and set up automatic deployments via GitHub Actions to [aws-training-report-LeManhCuong-2280600340](https://cuongmanhle230104.github.io/aws-training-report-LeManhCuong-2280600340/).

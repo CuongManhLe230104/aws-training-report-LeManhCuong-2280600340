@@ -1,113 +1,108 @@
 ---
 title: "Proposal"
-date: 2024-01-01
+date: 2026-06-27
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
 
-
-In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
-
-# IoT Weather Platform for Lab Research
-## A Unified AWS Serverless Solution for Real-Time Weather Monitoring
+# SaaS HR Multi-Tenant Platform on AWS
+## A Secure, Scalable, and Cost-Optimized Cloud-Native HR Management Solution
 
 ### 1. Executive Summary
-The IoT Weather Platform is designed for the ITea Lab team in Ho Chi Minh City to enhance weather data collection and analysis. It supports up to 5 weather stations, with potential scalability to 10-15, utilizing Raspberry Pi edge devices with ESP32 sensors to transmit data via MQTT. The platform leverages AWS Serverless services to deliver real-time monitoring, predictive analytics, and cost efficiency, with access restricted to 5 lab members via Amazon Cognito.
+The SaaS HR Multi-Tenant platform is a cloud-native HR management solution designed for Small and Medium Enterprises (SMEs). The platform enforces strict tenant data isolation, ensuring that each subscribing company's employee, department, and payroll data is segregated and protected using a zero-trust model. Built using FastAPI microservices and React, the system leverages AWS managed services—including ECS Fargate, ALB, RDS MySQL Multi-AZ, S3, CloudFront, Cognito, SQS, Secrets Manager, and CloudWatch—to deliver high availability, automated scaling, and cost efficiency.
+
+---
 
 ### 2. Problem Statement
-### What’s the Problem?
-Current weather stations require manual data collection, becoming unmanageable with multiple units. There is no centralized system for real-time data or analytics, and third-party platforms are costly and overly complex.
 
-### The Solution
-The platform uses AWS IoT Core to ingest MQTT data, AWS Lambda and API Gateway for processing, Amazon S3 for storage (including a data lake), and AWS Glue Crawlers and ETL jobs to extract, transform, and load data from the S3 data lake to another S3 bucket for analysis. AWS Amplify with Next.js provides the web interface, and Amazon Cognito ensures secure access. Similar to Thingsboard and CoreIoT, users can register new devices and manage connections, though this platform operates on a smaller scale and is designed for private use. Key features include real-time dashboards, trend analysis, and low operational costs.
+#### What's the Problem?
+SMEs require reliable HR management software but often lack the capital and technical expertise to deploy and maintain dedicated servers. Traditional single-tenant deployments are costly and hard to scale, while basic multi-tenant setups frequently suffer from weak security boundaries and data leakage risks.
 
-### Benefits and Return on Investment
-The solution establishes a foundational resource for lab members to develop a larger IoT platform, serving as a study resource, and provides a data foundation for AI enthusiasts for model training or analysis. It reduces manual reporting for each station via a centralized platform, simplifying management and maintenance, and improves data reliability. Monthly costs are $0.66 USD per the AWS Pricing Calculator, with a 12-month total of $7.92 USD. All IoT equipment costs are covered by the existing weather station setup, eliminating additional development expenses. The break-even period of 6-12 months is achieved through significant time savings from reduced manual work.
+#### The Solution
+The proposed solution is a fully managed, multi-tenant HR SaaS on AWS. The application separates tenant data at the API layer by extracting `tenant_id` claims from secure RS256 JWT tokens. The infrastructure is serverless and highly available, utilizing ECS Fargate for compute and RDS MySQL Multi-AZ for relational database storage. 
+
+#### Benefits and Return on Investment (ROI)
+- **Zero Maintenance Overhead:** Serverless tasks (Fargate) eliminate the need to patch or manage virtual machines.
+- **Strict Data Isolation:** Protects client compliance by isolating data at the application and network layers.
+- **Significant Cost Savings:** Implementing FinOps strategies (NAT Gateway removal, RDS scheduling, ECS Spot tasks) reduces monthly costs by 61% from $132.80 USD to $51.70 USD.
+- **Fast Break-Even:** Achieved within 3-6 months due to reduced operational labor and optimized cloud spending.
+
+---
 
 ### 3. Solution Architecture
-The platform employs a serverless AWS architecture to manage data from 5 Raspberry Pi-based stations, scalable to 15. Data is ingested via AWS IoT Core, stored in an S3 data lake, and processed by AWS Glue Crawlers and ETL jobs to transform and load it into another S3 bucket for analysis. Lambda and API Gateway handle additional processing, while Amplify with Next.js hosts the dashboard, secured by Cognito. The architecture is detailed below:
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+The platform employs a secure, multi-tier AWS architecture spanning two Availability Zones (AZs) for high availability:
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+![SaaS HR Multi-Tenant Architecture](/images/5-Workshop/5.1-Overview/architecture.png)
 
-### AWS Services Used
-- **AWS IoT Core**: Ingests MQTT data from 5 stations, scalable to 15.
-- **AWS Lambda**: Processes data and triggers Glue jobs (two functions).
-- **Amazon API Gateway**: Facilitates web app communication.
-- **Amazon S3**: Stores raw data in a data lake and processed outputs (two buckets).
-- **AWS Glue**: Crawlers catalog data, and ETL jobs transform and load it.
-- **AWS Amplify**: Hosts the Next.js web interface.
-- **Amazon Cognito**: Secures access for lab users.
+#### AWS Services Used
+- **Amazon CloudFront**: Acts as the global content delivery network (CDN) and secure entry point.
+- **Amazon S3**: Hosts the React static frontend with all public access blocked via Origin Access Control (OAC).
+- **Amazon Cognito**: Manages user authentication and authorization token generation.
+- **Application Load Balancer (ALB)**: Performs path-routing (`/api/v1/*`) to backend target groups.
+- **Amazon ECS (Fargate)**: Runs FastAPI microservices (`auth`, `tenant`, and `hr`) as serverless containers.
+- **Amazon RDS (MySQL)**: Provides managed, relational database storage configured in Multi-AZ for auto-failover.
+- **Amazon SQS**: Handles asynchronous event message decoupling between microservices.
+- **AWS Secrets Manager**: Manages database credentials securely with automated Lambda-based rotation.
+- **Amazon CloudWatch & SNS**: Aggregates container logs and triggers metric alarms (CPU/Memory thresholds).
 
-### Component Design
-- **Edge Devices**: Raspberry Pi collects and filters sensor data, sending it to IoT Core.
-- **Data Ingestion**: AWS IoT Core receives MQTT messages from the edge devices.
-- **Data Storage**: Raw data is stored in an S3 data lake; processed data is stored in another S3 bucket.
-- **Data Processing**: AWS Glue Crawlers catalog the data, and ETL jobs transform it for analysis.
-- **Web Interface**: AWS Amplify hosts a Next.js app for real-time dashboards and analytics.
-- **User Management**: Amazon Cognito manages user access, allowing up to 5 active accounts.
+#### Component Design
+- **Presentation Tier:** Users access the system via CloudFront. Static assets are securely fetched from S3.
+- **Application Tier:** FastAPI microservices run on ECS Fargate inside private subnets, exposed only to the ALB.
+- **Data Tier:** The RDS database is isolated in private DB subnet groups, accepting traffic only from ECS tasks.
+- **Messaging Integration:** SQS queues decouple high-latency tasks (e.g. tenant synchronization) to optimize API response times.
+
+---
 
 ### 4. Technical Implementation
-**Implementation Phases**
-This project has two parts—setting up weather edge stations and building the weather platform—each following 4 phases:
-- Build Theory and Draw Architecture: Research Raspberry Pi setup with ESP32 sensors and design the AWS serverless architecture (1 month pre-internship)
-- Calculate Price and Check Practicality: Use AWS Pricing Calculator to estimate costs and adjust if needed (Month 1).
-- Fix Architecture for Cost or Solution Fit: Tweak the design (e.g., optimize Lambda with Next.js) to stay cost-effective and usable (Month 2).
-- Develop, Test, and Deploy: Code the Raspberry Pi setup, AWS services with CDK/SDK, and Next.js app, then test and release to production (Months 2-3).
 
-**Technical Requirements**
-- Weather Edge Station: Sensors (temperature, humidity, rainfall, wind speed), a microcontroller (ESP32), and a Raspberry Pi as the edge device. Raspberry Pi runs Raspbian, handles Docker for filtering, and sends 1 MB/day per station via MQTT over Wi-Fi.
-- Weather Platform: Practical knowledge of AWS Amplify (hosting Next.js), Lambda (minimal use due to Next.js), AWS Glue (ETL), S3 (two buckets), IoT Core (gateway and rules), and Cognito (5 users). Use AWS CDK/SDK to code interactions (e.g., IoT Core rules to S3). Next.js reduces Lambda workload for the fullstack web app.
+#### Implementation Phases
+- **Phase 1: Architecture Design & Cost Calculation (Weeks 1-2):** Map microservices dependencies and estimate base running costs using the AWS Pricing Calculator.
+- **Phase 2: Networking & Security Baseline (Weeks 3-5):** Build the secure multi-subnet VPC, configure Security Groups, and set up RDS Multi-AZ.
+- **Phase 3: Microservices Deployment & Routing (Weeks 6-8):** Dockerize the services, push to ECR, and configure ALB path-based routing rules.
+- **Phase 4: Frontend Hosting & Secrets Management (Weeks 9-10):** Set up CloudFront OAC, deploy the React build to S3, and configure AWS Secrets Manager password rotation.
+- **Phase 5: Observability & Cost Optimization (Weeks 11-12):** Configure CloudWatch CPU utilization alarms, schedule RDS off-hours shutdowns, and transition tasks to ECS Spot.
+
+#### Technical Requirements
+- Containerized microservices using Docker.
+- Terraform configuration files for Infrastructure as Code (IaC) automation.
+- Python Lambda scripts configured for Secrets Manager rotation schedule (every 30 days).
+
+---
 
 ### 5. Timeline & Milestones
-**Project Timeline**
-- Pre-Internship (Month 0): 1 month for planning and old station review.
-- Internship (Months 1-3): 3 months.
-    - Month 1: Study AWS and upgrade hardware.
-    - Month 2: Design and adjust architecture.
-    - Month 3: Implement, test, and launch.
-- Post-Launch: Up to 1 year for research.
+
+- **Milestone 1 (End of Month 1):** Networking, Active Directory, and database infrastructures fully operational on AWS.
+- **Milestone 2 (End of Month 2):** Microservices dockerized, API Gateway configured, and serverless compute tier deployed.
+- **Milestone 3 (End of Month 3):** React frontend integrated via CDN, automated database rotation configured, FinOps cost optimizations applied, and end-to-end validation completed.
+
+---
 
 ### 6. Budget Estimation
-You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).  
-Or you can download the [Budget Estimation File](../attachments/budget_estimation.pdf).
 
-### Infrastructure Costs
-- AWS Services:
-    - AWS Lambda: $0.00/month (1,000 requests, 512 MB storage).
-    - S3 Standard: $0.15/month (6 GB, 2,100 requests, 1 GB scanned).
-    - Data Transfer: $0.02/month (1 GB inbound, 1 GB outbound).
-    - AWS Amplify: $0.35/month (256 MB, 500 ms requests).
-    - Amazon API Gateway: $0.01/month (2,000 requests).
-    - AWS Glue ETL Jobs: $0.02/month (2 DPUs).
-    - AWS Glue Crawlers: $0.07/month (1 crawler).
-    - MQTT (IoT Core): $0.08/month (5 devices, 45,000 messages).
+You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).
 
-Total: $0.7/month, $8.40/12 months
+#### Monthly Infrastructure Costs (FinOps Optimized)
+- **ECS Fargate Compute (Spot):** $18.40/month
+- **Amazon RDS MySQL (db.t4g.micro Multi-AZ):** $22.50/month
+- **Application Load Balancer & Data Transfer:** $8.30/month
+- **CloudFront, S3 & SSM/Cognito:** $2.50/month
+- **Total Monthly Budget:** **$51.70 USD** (Saved 61% compared to baseline $132.80 USD cost).
 
-- Hardware: $265 one-time (Raspberry Pi 5 and sensors).
+---
 
 ### 7. Risk Assessment
+
 #### Risk Matrix
-- Network Outages: Medium impact, medium probability.
-- Sensor Failures: High impact, low probability.
-- Cost Overruns: Medium impact, low probability.
+- **Data Access Cross-contamination:** High impact, low probability. Mitigation: Enforce strict token parsing to validate the `tenant_id` claim in every request.
+- **Secrets Exposure:** High impact, low probability. Mitigation: Zero hardcoded credentials; retrieve database passwords dynamically from AWS Secrets Manager.
+- **Budget Overruns:** Medium impact, low probability. Mitigation: Configure AWS Billing Budgets and CloudWatch metric alarms.
 
-#### Mitigation Strategies
-- Network: Local storage on Raspberry Pi with Docker.
-- Sensors: Regular checks and spares.
-- Cost: AWS budget alerts and optimization.
-
-#### Contingency Plans
-- Revert to manual methods if AWS fails.
-- Use CloudFormation for cost-related rollbacks.
+---
 
 ### 8. Expected Outcomes
-#### Technical Improvements: 
-Real-time data and analytics replace manual processes.  
-Scalable to 10-15 stations.
-#### Long-term Value
-1-year data foundation for AI research.  
-Reusable for future projects.
+
+- **Enterprise SaaS Readiness:** A secure, scalable, and isolated multi-tenant HR management application.
+- **Zero-Trust Security Alignment:** Private subnets deployment, WAF web traffic filtering, and automated credentials rotation.
+- **Maximized Cost Efficiency:** Highly optimized resource allocation reducing monthly hosting fees to a minimum.

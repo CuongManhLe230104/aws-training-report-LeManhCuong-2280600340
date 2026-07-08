@@ -1,55 +1,34 @@
 ---
 title: "Week 12 Worklog"
-date: 2024-01-01
+date: 2026-07-06
 weight: 12
 chapter: false
 pre: " <b> 1.12. </b> "
 ---
 
-
+**Internship Report Finalization & Deliverables Handover**
+**Name:** Lê Mạnh Cường
+**ID:** 2280600340
 
 ### Week 12 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* **Internship Report Website Completion:** Integrate and link all chapters including Worklogs, Proposal, Blogs Posted, Events, Self-evaluation, and Feedback.
+* **Graduation Report & Forms Compilation:** Draft and finalize the graduation internship report (Báo cáo TTTN) document, tracking sheets, and corporate evaluation forms.
+* **Verification & Handover:** Perform cross-checking of all website routes, links, and media on GitHub Pages, and package all deliverables for final submission.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 1 | - Review the overall structure and integrate all information into the Internship Report Website (Worklogs, Proposal, Blogs Posted, Events, Self-evaluation, and Feedback). | 07/06/2026 | 07/06/2026 | |
+| 2 | - Complete and standardize the weekly tracking sheets from Week 1 to Week 12. | 07/07/2026 | 07/07/2026 | |
+| 3 | - Complete the self-evaluation report and draft corporate evaluation forms. | 07/08/2026 | 07/08/2026 | |
+| 4-5 | - Collect data, compile contents, and finalize the graduation internship report document (Báo cáo TTTN - Word/PDF) for school submission. | 07/09/2026 | 07/10/2026 | |
+| 6 | - Conduct end-to-end testing and cross-checking of all hyperlinks, media rendering, and spelling on GitHub Pages. | 07/11/2026 | 07/11/2026 | |
+| 7 | - Package the project source code, internship report, tracking sheets, evaluation forms, and execute the final deliverables handover. | 07/12/2026 | 07/12/2026 | |
 
 ### Week 12 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* **Fully Completed Report Site:** Synchronized and standardized 100% of the Hugo static internship report site in both English and Vietnamese.
+* **Finalized Internship Documentation:** Completed and packaged all required documents: the graduation report (Báo cáo TTTN), weekly progress tracking sheets, and self-evaluation forms.
+* **Successful Project Handover:** Verified all routes on production with zero broken links or image issues, and submitted all deliverables on time.
