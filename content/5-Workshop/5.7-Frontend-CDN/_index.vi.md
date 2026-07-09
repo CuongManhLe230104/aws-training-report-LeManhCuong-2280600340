@@ -1,6 +1,6 @@
 ﻿---
 title: "Frontend & CDN"
-date: 2024-07-08
+date: 2026-07-08
 weight: 7
 chapter: false
 pre: " <b> 5.7. </b> "

@@ -1,6 +1,6 @@
 ﻿---
 title: "Chuẩn bị"
-date: 2024-07-08
+date: 2026-07-08
 weight: 2
 chapter: false
 pre: " <b> 5.2. </b> "
