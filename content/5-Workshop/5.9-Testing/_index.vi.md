@@ -1,5 +1,5 @@
-﻿---
-title: "Kiểm thử & Xác thực"
+---
+title: "Demo, Kiểm thử & Xác thực"
 date: 2026-07-08
 weight: 9
 chapter: false
@@ -9,8 +9,14 @@ pre: " <b> 5.9. </b> "
 Xác thực end-to-end stack đã triển khai qua cổng vào CloudFront, rồi kiểm thử lỗi, kiểm thử tính sẵn sàng cao, và quan sát (observability). Base URL:
 
 ```bash
-BASE="https://d3htvmot332c6v.cloudfront.net/"   
+BASE="https://d3rpqs3arfqpga.cloudfront.net/"   
 ```
+
+## Video demo giao diện
+
+- **<a href="https://drive.google.com/file/d/1Pth_vB6oUrJbP5H4CyFzAPaRKqfXgiKg/view?usp=sharing" target="_blank" rel="noopener noreferrer">🎥 Link video: Trải nghiệm giao diện — 2 tenant</a>** — 2 tab, mỗi tab một tài khoản của một tenant khác nhau, gồm dashboard, danh sách nhân viên, danh sách phòng ban, chấm công, gửi đơn nghỉ phép, thành viên trong tenant, và profile.
+- **<a href="https://drive.google.com/file/d/1s8N0P96T1q-wZqCyz3X2GLhFu-xDewvK/view?usp=sharing" target="_blank" rel="noopener noreferrer">🎥 Link video: Quản lý nhân viên & phòng ban</a>** — thêm/sửa/xóa nhân viên và sửa phòng ban.
+- **<a href="https://drive.google.com/file/d/1Klln4HYTXwtWXzIP3q97n1a1m8lFbWXT/view?usp=drive_link" target="_blank" rel="noopener noreferrer">🎥 Link video: Chấm công & duyệt nghỉ phép</a>** — luồng chấm công vào/ra và gửi đơn nghỉ phép để admin duyệt.
 
 ## 1. Health check (smoke test)
 
@@ -26,7 +32,7 @@ curl -s $BASE/api/v1/hr/health
 {"status":"healthy","database":"up","service":"hr-service"}
 ```
 
-![Health checks](../../images/5-Workshop/5.9-Testing/curl1.png)
+![Health checks](../../../images/5-Workshop/5.9-Testing/curl1.png)
 
 ## 2. Phục vụ Frontend
 
@@ -57,7 +63,7 @@ curl -s $BASE/api/v1/auth/me -H "Authorization: Bearer $TOKEN"
 ```
 Token là **JWT RS256 tự ký của ứng dụng** (auth-service ký bằng private key; các service khác verify bằng public key — xem [Dữ liệu & Danh tính](../5.4-Data-Identity/)). Các claim (`tenant_id`, `role`) chi phối mọi kiểm tra phân quyền phía sau.
 
-![Frontend loads](../../images/5-Workshop/5.9-Testing/curl2.png)
+![Frontend loads](../../../images/5-Workshop/5.9-Testing/curl2.png)
 
 ## 4. Nghiệp vụ (có xác thực, giới hạn theo tenant)
 
@@ -75,7 +81,7 @@ curl -s $BASE/api/v1/hr/employees -H "Authorization: Bearer $TOKEN"
 ```
 Đọc tenant, tạo phòng ban (`201`), và liệt kê nhân viên (rỗng với tenant mới) đều thành công — đọc/ghi dữ liệu tới RDS chạy thông qua đường có xác thực.
 
-![Business operations](../../images/5-Workshop/5.9-Testing/curl4.png)
+![Business operations](../../../images/5-Workshop/5.9-Testing/curl4.png)
 
 ## 5. Kiểm định & kiểm thử lỗi
 {{% notice info %}}
@@ -99,8 +105,8 @@ Các phản hồi lỗi của API được test **trực tiếp vào ALB** (`htt
 **Hạn chế đã biết:** tạo phòng ban trùng tên được chặn đúng ở tầng database (unique key `uq_tenant_dept`), nhưng API hiện trả về **HTTP 500** thay vì **409 Conflict** cho gọn. Toàn vẹn dữ liệu vẫn an toàn; chỉ cần cải thiện phản hồi lỗi.
 {{% /notice %}}
 
-![Business operations](../../images/5-Workshop/5.9-Testing/curl5.png)
-![Business operations](../../images/5-Workshop/5.9-Testing/tenant-isolution.png)
+![Business operations](../../../images/5-Workshop/5.9-Testing/curl5.png)
+![Business operations](../../../images/5-Workshop/5.9-Testing/tenant-isolution.png)
 
 ## 6. Nhắn tin bất đồng bộ (SQS) — phát hiện khi kiểm thử
 
@@ -112,7 +118,7 @@ Kiểm thử end-to-end luồng bất đồng bộ (đổi status tenant → SQS
 
 **Đánh giá:** **thiết kế** hướng sự kiện (SQS decoupling + DLQ + consumer long-poll, xem [Hàng đợi bất đồng bộ](../5.5-Async-SQS/)) là đúng đắn; chỗ thiếu nằm ở phần đấu nối khi triển khai (nhiều khả năng image service cũ và/hoặc consumer chưa khởi động), và đang được sửa. Ghi lại đây như một phát hiện kiểm thử trung thực, không tuyên bố là đã đạt.
 
-![SQS metrics](../../images/5-Workshop/5.9-Testing/sqs-metrics.png)
+![SQS metrics](../../../images/5-Workshop/5.9-Testing/sqs-metrics.png)
 
 ## 7. Quan sát (Observability)
 
@@ -125,10 +131,9 @@ Kiểm thử end-to-end luồng bất đồng bộ (đổi status tenant → SQS
   ```
   **Mong đợi:** email SNS tới trong vài giây và alarm hiện trạng thái **ALARM** (xem [Giám sát & Cảnh báo](../5.8-Monitoring/)).
 
-![Alarm email](../../images/5-Workshop/5.9-Testing/alarm1.png)
+![Alarm email](../../../images/5-Workshop/5.9-Testing/alarm1.png)
 
-![Alarm email](../../images/5-Workshop/5.9-Testing/alarm2.png)
+![Alarm email](../../../images/5-Workshop/5.9-Testing/alarm2.png)
 
-![Alarm email](../../images/5-Workshop/5.9-Testing/alarm3.png)
-
+![Alarm email](../../../images/5-Workshop/5.9-Testing/alarm3.png)
 
